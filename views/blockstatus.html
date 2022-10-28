@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{template "thead" .}}
+    <title>数字保险箱</title>
+    <!--
+
+    -->
+    {{template "tlink" .}}
+    <script src="https://go-echarts.github.io/go-echarts-assets/assets/echarts.min.js"></script>
+
+</head>
+
+<body class="bg02">
+    <div class="container">
+        {{template "tmenu" .}}
+
+
+        <div class="row tm-content-row tm-mt-big">
+            <div class="col-xl-12 col-lg-12 tm-md-12 tm-sm-12 tm-col">
+                <div class="bg-white tm-block h-100">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-12">
+                            <h2 class="tm-block-title d-inline-block" onclick="
+                            getBlockInfo('user_behaviour')">用户行为账本</h2>
+                            <input type="button" onclick=" getBlockInfo('user_behaviour')" value="刷新数据">
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                    <table class="table table-hover table-striped tm-table-striped-even mt-3">
+                        <thead>
+                        <tr class="tm-bg-gray">
+                            <th scope="col">区块生成时间</th>
+                            <th scope="col">区块哈希</th>
+                            <th scope="col">区块ID</th>
+                            <th scope="col" class="text-center">账本类型</th>
+                            <!--                                <th scope="col">&nbsp;</th>-->
+                        </tr>
+                        </thead>
+                        <tbody id="user_behaviour">
+
+                        </tbody>
+                    </table>
+                </div>
+
+                    <div class="tm-table-mt tm-table-actions-row">
+                        <div class="tm-table-actions-col-right">
+                            <span class="tm-pagination-label">Page</span>
+                            <nav aria-label="Page navigation" class="d-inline-block">
+                                <ul class="pagination tm-pagination">
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <span class="tm-dots d-block">...</span>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">13</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">14</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row tm-content-row tm-mt-big">
+            <div class="col-xl-12 col-lg-12 tm-md-12 tm-sm-12 tm-col">
+                <div class="bg-white tm-block h-100">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-12">
+                            <h2 class="tm-block-title d-inline-block" onclick="
+                            getBlockInfo('video')">视频账本</h2>
+                            <input type="button" onclick=" getBlockInfo('video')" value="刷新数据">
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped tm-table-striped-even mt-3">
+                            <thead>
+                            <tr class="tm-bg-gray">
+                                <th scope="col">区块生成时间</th>
+                                <th scope="col">区块哈希</th>
+                                <th scope="col">区块ID</th>
+                                <th scope="col" class="text-center">账本类型</th>
+                                <!--                                <th scope="col">&nbsp;</th>-->
+                            </tr>
+                            </thead>
+                            <tbody id="video">
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="tm-table-mt tm-table-actions-row">
+                        <div class="tm-table-actions-col-right">
+                            <span class="tm-pagination-label">Page</span>
+                            <nav aria-label="Page navigation" class="d-inline-block">
+                                <ul class="pagination tm-pagination">
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <span class="tm-dots d-block">...</span>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">13</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">14</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row tm-content-row tm-mt-big">
+            <div class="col-xl-12 col-lg-12 tm-md-12 tm-sm-12 tm-col">
+                <div class="bg-white tm-block h-100">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-12">
+                            <h2 class="tm-block-title d-inline-block">文件夹状态</h2>
+
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <div class="select" style="margin-right:10px; margin-top:10px; position:fixed; right:10px;"></div>
+
+                        <div class="container">
+                            <div class="item" id="uPLUOHYqCJMH"
+                                 style="width:900px;height:500px;"></div>
+                        </div>
+                        <script type="text/javascript">
+                            "use strict";
+                            var myChart_uPLUOHYqCJMH = echarts.init(document.getElementById('uPLUOHYqCJMH'), "white");
+                            var option_uPLUOHYqCJMH = {
+                                title: {"text":"文件夹",},
+                                tooltip: {},
+                                legend: {},
+                                xAxis: [{"data":["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],"splitArea":{"show":false,},"splitLine":{"show":false,}}],
+                                yAxis: [{"axisLabel":{"show":true},"splitArea":{"show":false,},"splitLine":{"show":false,}}],
+                                series: [
+                                    {"name":"Category A","type":"bar","data":[20,30,40,10,24,36,12],"label":{"show":false},"emphasis":{"label":{"show":false},},"markLine":{"label":{"show":false}},"markPoint":{"label":{"show":false}},},
+                                    {"name":"Category B","type":"bar","data":[36,14,25,60,44,23,11],"label":{"show":false},"emphasis":{"label":{"show":false},},"markLine":{"label":{"show":false}},"markPoint":{"label":{"show":false}},},
+                                ],
+                                color: ["#c23531","#2f4554","#61a0a8","#d48265","#91c7ae","#749f83","#ca8622","#bda29a","#6e7074","#546570","#c4ccd3"],
+                            };
+                            myChart_uPLUOHYqCJMH.setOption(option_uPLUOHYqCJMH);
+                        </script>
+
+    <!--                    <style>-->
+    <!--                        .container {margin-top:30px; display: flex;justify-content: center;align-items: center;}-->
+    <!--                        .item {margin: auto;}-->
+    <!--                    </style>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        {{template "tfooter" .}}
+
+    </div>
+
+    {{template "tjs" .}}
+    <script>
+
+        $(".navbar ui li a").removeClass("active");
+        $("#m_products").addClass("active");
+    </script>
+    <script>
+
+        function getBlockInfo(blockType) {
+            //提交表单
+            $.ajax({
+                type: 'GET',
+                async: false,
+                url: 'blockchain/queryBlockInfos/'+blockType,
+                success: function (data, status) {
+                    var htmlStr = "";
+                    var len = 20;
+                    if(data.length < 20){
+                        len = data.length;
+                    }
+
+                    console.log(data);
+                    switch (blockType){
+                        case "user_behaviour" :
+                            for(var i = 0;i < len;i++) {
+                                var o = data[i];
+                                htmlStr += "<tr>";
+                                htmlStr += "  <td className=\"tm-product-name\">" + o.UpdateTimestamp + "</td>";
+                                htmlStr += " <td className=\"text-center\">" + o.BlockHash + "</td>";
+                                htmlStr += " <td className=\"text-center\">" + o.keyId + "</td>";
+                                htmlStr += " <td className=\"text-center\">" + o.LedgerType + "</td>";
+                                htmlStr += "</tr>";
+
+                            }
+                            //将拼接的字符串放进tbody里
+                            $("#user_behaviour").html(htmlStr);
+                            break;
+                        case "video" :
+                            for(var i = 0;i < len;i++) {
+                                var o = data[i];
+
+                                //     < th
+                                // scope = "col" > 区块生成时间 < /th>
+                                // <th scope="col">区块哈希</th>
+                                // <th scope="col">区块ID</th>
+                                // <th scope="col" className="text-center">账本类型</th>
+                                htmlStr += "<tr>";
+                                htmlStr += "  <td className=\"tm-product-name\">" + o.UpdateTimestamp + "</td>";
+                                htmlStr += " <td className=\"text-center\">" + o.BlockHash + "</td>";
+                                htmlStr += " <td className=\"text-center\">" + o.keyId + "</td>";
+                                htmlStr += " <td className=\"text-center\">" + o.LedgerType + "</td>";
+                                htmlStr += "</tr>";
+
+                            }
+                            //将拼接的字符串放进tbody里
+                            $("#video").html(htmlStr);
+                    }
+
+
+                }
+            })
+        }
+    </script>
+
+
+</body>
+
+</html>
+

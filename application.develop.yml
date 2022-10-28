@@ -1,0 +1,43 @@
+redis:
+  network: tcp
+  addr: 101.43.138.160
+  port: "6379"
+  password: JAYlingluan/0118
+  db: 0
+  pools: 16
+  min_conns: 0
+email:
+  vendor: bupt
+  host: smtp.bupt.edu.cn
+  port: 465
+  sender: roottest@bupt.edu.cn
+  password: roottest
+  nice: root
+  cc: handaqi@bupt.edu.com.cn
+message:
+  vendor: easemob
+  token_url: http://a1.easemob.com/1113211109110751/scope/token
+  client_id: YXA6GfgasKrsSKSfCIVa7SSLNg
+  client_secret: YXA6NnCMnQL8d4GtSnLVggcwx8P8HG8
+  retry: 86400
+  token: ""
+  send_url: http://a1.easemob.com/1113211109110751/scope/sms/send
+  tid: "802"
+  expires: 120
+mysql:
+  dialect: mysql
+  host:  101.43.138.160
+  port: 3306
+  dbname: light_blockchain
+  username: root
+  password: Zms123456
+  migration: true
+
+extension:
+  master_generator: true
+  cors_enabled: true
+  security_enabled: true
+
+swagger:
+  enabled: true
+  path: /swagger/.*

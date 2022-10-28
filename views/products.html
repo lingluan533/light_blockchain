@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{template "thead" .}}
+    <title>数字保险箱</title>
+    <!--
+
+    -->
+    {{template "tlink" .}}
+
+</head>
+
+<body class="bg02">
+    <div class="container">
+        {{template "tmenu" .}}
+
+        <div class="row tm-content-row tm-mt-big">
+            <div class="col-xl-8 col-lg-12 tm-md-12 tm-sm-12 tm-col">
+                <div class="bg-white tm-block h-100">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-12">
+                            <h2 class="tm-block-title d-inline-block">私人云盒列表</h2>
+
+                        </div>
+                        <div class="col-md-4 col-sm-12 text-right">
+                            <a href="add-product.html" class="btn btn-small btn-primary">增加新盒子</a>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped tm-table-striped-even mt-3">
+                            <thead>
+                            <tr class="tm-bg-gray">
+                                <th scope="col">&nbsp;</th>
+                                <th scope="col">Box Name</th>
+                                <th scope="col" class="text-center">IP Address</th>
+                                <th scope="col" class="text-center">状态</th>
+                                <th scope="col">启动时间</th>
+                                <th scope="col">&nbsp;</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <input type="checkbox" aria-label="Checkbox">
+                                </th>
+                                <td class="tm-product-name">1. Box1</td>
+                                <td class="text-center">192.168.216.197</td>
+                                <td class="text-center">started</td>
+                                <td>2021-09-06</td>
+                                <td><i class="fas fa-trash-alt tm-trash-icon"></i></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <input type="checkbox" aria-label="Checkbox">
+                                </th>
+                                <td class="tm-product-name">2. Box2</td>
+                                <td class="text-center">192.168.216.198</td>
+                                <td class="text-center">started</td>
+                                <td>2021-09-06</td>
+                                <td><i class="fas fa-trash-alt tm-trash-icon"></i></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <input type="checkbox" aria-label="Checkbox">
+                                </th>
+                                <td class="tm-product-name">3. Box3</td>
+                                <td class="text-center">192.168.216.199</td>
+                                <td class="text-center">started</td>
+                                <td>2021-09-06</td>
+                                <td><i class="fas fa-trash-alt tm-trash-icon"></i></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <input type="checkbox" aria-label="Checkbox">
+                                </th>
+                                <td class="tm-product-name">4. Box4</td>
+                                <td class="text-center">192.168.216.200</td>
+                                <td class="text-center">started</td>
+                                <td>2021-09-06</td>
+                                <td><i class="fas fa-trash-alt tm-trash-icon"></i></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <input type="checkbox" aria-label="Checkbox">
+                                </th>
+                                <td class="tm-product-name">5. Box5</td>
+                                <td class="text-center">192.168.216.201</td>
+                                <td class="text-center">started</td>
+                                <td>2021-09-06</td>
+                                <td><i class="fas fa-trash-alt tm-trash-icon"></i></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="tm-table-mt tm-table-actions-row">
+                        <div class="tm-table-actions-col-left">
+                            <button class="btn btn-danger">删除选中的盒子</button>
+                        </div>
+                        <div class="tm-table-actions-col-right">
+                            <span class="tm-pagination-label">Page</span>
+                            <nav aria-label="Page navigation" class="d-inline-block">
+                                <ul class="pagination tm-pagination">
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <span class="tm-dots d-block">...</span>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">13</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">14</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-12 tm-md-12 tm-sm-12 tm-col">
+                <div class="bg-white tm-block h-100">
+                    <h2 class="tm-block-title d-inline-block">盒子功能模块</h2>
+                    <table class="table table-hover table-striped mt-3">
+                        <tbody>
+                        <tr>
+                            <td>1. 网络连接和上网管理</td>
+                            <td class="tm-trash-icon-cell"><i class="fas fa-trash-alt tm-trash-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>2. 挂载存储目录</td>
+                            <td class="tm-trash-icon-cell"><i class="fas fa-trash-alt tm-trash-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>3. 共享目录自动同步</td>
+                            <td class="tm-trash-icon-cell"><i class="fas fa-trash-alt tm-trash-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>4. 轻量型区块链</td>
+                            <td class="tm-trash-icon-cell"><i class="fas fa-trash-alt tm-trash-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>5. 数字保险箱管理</td>
+                            <td class="tm-trash-icon-cell"><i class="fas fa-trash-alt tm-trash-icon"></i></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <a href="#" class="btn btn-primary btn-small">增加新模块</a>
+
+                </div>
+            </div>
+        </div>
+
+        {{template "tfooter" .}}
+
+    </div>
+
+    {{template "tjs" .}}
+    <script>
+
+        $(".navbar ui li a").removeClass("active");
+        $("#m_products").addClass("active");
+    </script>
+</body>
+</html>

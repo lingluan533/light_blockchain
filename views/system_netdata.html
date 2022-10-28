@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{template "thead" .}}
+    <title>数字保险箱</title>
+    <!--
+
+    -->
+    {{template "tlink" .}}
+
+</head>
+
+<body class="bg05">
+    <div class="container">
+        {{template "tmenu" .}}
+
+        <div class="row tm-content-row tm-mt-big">
+            <div class="col-12">
+                <div class="bg-white tm-block">
+                    <h2 class="tm-block-title">系统实时监控</h2>
+                    <iframe id="netdata" style="width: 100%; min-height: 1200px; border: none; border-radius: 3px;" src=""></iframe>
+               </div>
+            </div>
+
+        </div>
+
+        {{template "tfooter" .}}
+
+    </div>
+
+    {{template "tjs" .}}
+    <script>
+        $(".navbar ui li a").removeClass("active");
+        $("#navbarDropdown_systems").addClass("active");
+        $("#netdata").attr('src', window.location.protocol+"//"+window.location.hostname+":19999")
+        //$("#netdata").attr('src', "http://192.168.216.197:19999")
+    </script>
+</body>
+</html>

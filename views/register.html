@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{template "thead" .}}
+    <title>Register</title>
+    <!--
+
+    -->
+    {{template "tlink" .}}
+
+</head>
+
+<body class="bg03">
+    <div class="container">
+        <div class="row" style="margin-top: 100px;min-height: 480px;">
+            <div class="col-md-6 m-auto" style="max-width: 600px;min-height: 360px">
+                <div class="card card-outline card-primary">
+                    <div class="card-header text-center">
+                        <a href="introduct.html" class="h1"><b>数字</b>保险箱:<h6>{{.HostName}}</h6></a>
+                    </div>
+
+                    <div class="card-body">
+                        <p class="login-box-msg">注册一个新用户</p>
+
+                        <form name="register" action="register" method="post">
+                            <input type="hidden" class="form-control" name="avatar" id="avatar" value="img/profile-image.png">
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <input name="user" type="text" class="form-control" placeholder="请输入用户名">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-user"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <input name="phone" type="mobile" class="form-control" placeholder="请输入手机号">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-phone"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <input name="email" type="email" class="form-control" placeholder="请输入邮箱地址">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-envelope"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <input id="pass0" name="pass0" type="password" class="form-control" placeholder="请输入密码">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-lock"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <input name="pass1" type="password" class="form-control" placeholder="请再次输入密码">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-lock"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="form-group">
+                                        <div class="icheck-primary">
+                                            <input name="agree" type="checkbox" id="agreeTerms">
+                                            <label for="agreeTerms">
+                                                我同意遵守用户<a href="#">条款</a>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-4">
+                                    <button type="button" class="btn btn-primary btn-block" onclick="btnSubmit('register','register')">注册</button>
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                        </form>
+
+                        <a href="login.html" class="text-center">已有用户</a>
+                    </div>
+                    <!-- /.form-box -->
+
+
+                </div>
+            </div>
+        </div>
+        {{template "tfooter" .}}
+
+    </div>
+
+    {{template "tjs" .}}
+    <script>
+
+        $(function() {
+            $("form[name='register']").validate({
+                rules: {
+                    user: {
+                        required: true,
+                        minlength: 3,
+                        //异步验证 开始
+                        remote: {
+                            url: "accounts_username_validate",//发送请求的url地址
+                            type: "post", //请求方式
+                            dataType: "json",//接收的数据类型
+                            data: {
+                                username: $("#user").val() //除了user，还可以增加字段
+                            },
+                            dataFilter: function (data, type) { //过滤返回结果
+                                data=eval( '(' + data + ')' )
+                                if (data.code == "00000")
+                                {
+                                    toastr.info('用户名重复:' + JSON.stringify(data) )
+                                    return false; //false代表用户名已经存在
+                                }
+                                else
+                                {
+                                    toastr.success('用户名可用:' + JSON.stringify(data) )
+                                    return true;  //true代表用户名还未存在
+                                }
+                            }
+                        }
+                        //异步验证 结束
+                    },
+                    phone: {
+                        required: true,
+                        minlength: 11
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    pass0: {
+                        required: true,
+                        minlength: 3,
+                    },
+                    pass1: {
+                        required: true,
+                        minlength: 3,
+                        equalTo:"#pass0"
+                    },
+                    agree: {
+                        required: true
+                    }
+                },
+                messages: {
+                    user: {
+                        required: "请输入用户名称",
+                        minlength: "用户名称不能小于3个字母",
+                        remote: "输入的用户名已经存在"
+                    },
+                    phone: {
+                        required: "请输入手机号",
+                        minlength: "手机号不能小于11个数字"
+                    },
+                    email: {
+                        required: "请输入邮箱名",
+                        email: "请输入有效邮箱名xx@yy.edu.cn"
+                    },
+                    pass0: {
+                        required: "请输入初始密码",
+                        minlength: "密码长度不能小于3个字母"
+                    },
+                    pass1: {
+                        required: "请再次输入确认密码",
+                        minlength: "密码长度不能小于3个字母",
+                        equalTo:"两次输入密码不一致"
+                    },
+                    agree: {
+                        required: "请查看和同意用户协议中的条款",
+                    },
+                },
+                errorElement: 'span',
+                errorPlacement: function (error, element) {
+                    error.addClass('invalid-feedback ml-auto col-xl-8 col-lg-8 col-md-8 col-sm-7 pl-0');
+                    element.closest('.form-group').append(error);
+                },
+                highlight: function (element, errorClass, validClass) {
+                    $(element).addClass('is-invalid');
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                    $(element).removeClass('is-invalid');
+                }
+
+            });
+        });
+
+        function btnSubmit(url,id) {
+            var flag = $("form[name='" + id + "']").valid();
+            if(!flag){
+                //没有通过验证
+                return;
+            }
+            //提交表单
+            $.ajax({
+                type: 'POST',
+                async: false,
+                url: url,
+                data: $("form[name='" + id + "']").serialize(),
+                success: function (data, status) {
+                    if (data.code == "00000") {
+                        toastr.success('注册新用户成功，欢迎你:' + $("input[name='email']").val() + data.msg )
+                        if( data.url.length > 0 )
+                            setTimeout( "window.location.href='"+data.url+"';", 1500 )
+                    } else {
+                        toastr.info('注册失败，请重新注册:' + JSON.stringify(data) )
+                    }
+                }
+            })
+            //可以阻止默认form提交事件event.preventDefault()
+        }
+    </script>
+</body>
+</html>

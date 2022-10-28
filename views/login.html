@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{template "thead" .}}
+    <title>Login</title>
+    <!--
+
+    -->
+    {{template "tlink" .}}
+
+</head>
+
+<body class="bg03">
+    <div class="container">
+        <div class="row" style="margin-top: 100px;min-height: 480px;">
+            <div class="col-md-6 m-auto" style="max-width: 600px;min-height: 360px">
+                <div class="card card-outline card-primary">
+                    <div class="card-header text-center">
+                        <a href="introduct.html" class="h1"><b>数字</b>保险箱:<h6>{{.HostName}}</h6></a>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="card card-primary card-outline card-outline-tabs">
+                            <div class="card-header p-0 border-bottom-0">
+                                <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="custom-tabs-three-home-tab" data-toggle="pill" href="#custom-tabs-three-home" role="tab" aria-controls="custom-tabs-three-home" aria-selected="true">密码登录</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-hash-tab" data-toggle="pill" href="#custom-tabs-three-hash" role="tab" aria-controls="custom-tabs-three-profile" aria-selected="false">HASH匿名登录</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="custom-tabs-three-messages-tab" data-toggle="pill" href="#custom-tabs-three-messages" role="tab" aria-controls="custom-tabs-three-messages" aria-selected="false">手机验证码登录</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-body">
+                                <div class="tab-content" id="custom-tabs-three-tabContent">
+                                    <div class="tab-pane fade show active" id="custom-tabs-three-home" role="tabpanel" aria-labelledby="custom-tabs-three-home-tab">
+                                        <form name="user" action="login" method="post">
+                                            <div class="input-group mb-3">
+                                                <input name="user" type="user" class="form-control" placeholder="请输入用户名">
+                                                <div class="input-group-append">
+                                                    <div class="input-group-text">
+                                                        <span class="fas fa-user"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <input name="password" type="password" class="form-control" placeholder="请输入密码">
+                                                <div class="input-group-append">
+                                                    <div class="input-group-text">
+                                                        <span class="fas fa-lock"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-8">
+                                                    <div class="icheck-primary">
+                                                        <input name="remember" type="checkbox" id="remember">
+                                                        <label for="remember">
+                                                            记住用户名
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <!-- /.col -->
+                                                <div class="col-4">
+                                                    <button type="button" class="btn btn-primary btn-block" onclick="btnSubmit('login','user')">登录</button>
+                                                </div>
+
+                                                <!-- /.col -->
+                                            </div>
+                                        </form>
+
+                                        <!--
+                                        <div class="social-auth-links text-center mt-2 mb-3">
+                                            <a href="#" class="btn btn-block btn-primary">
+                                                <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+                                            </a>
+                                            <a href="#" class="btn btn-block btn-danger">
+                                                <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+                                            </a>
+                                        </div>
+                                         /.social-auth-links -->
+
+                                        <p class="mb-1">
+                                            <a href="forgot-password.html">忘记密码？</a>
+                                        </p>
+                                        <p class="mb-0">
+                                            <a href="register.html" class="text-center">注册新用户</a>
+                                        </p>
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-three-hash" role="tabpanel" aria-labelledby="custom-tabs-three-hash-tab">
+                                        <form name="hash" action="hash" method="post">
+                                            <div class="input-group mb-3">
+                                                <input type="user" class="form-control" placeholder="每月动态匿名地址">
+                                                <div class="input-group-append">
+                                                    <div class="input-group-text">
+                                                        <span class="fas fa-address-book"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <input type="password" class="form-control" placeholder="每天动态访问令牌">
+                                                <div class="input-group-append">
+                                                    <div class="input-group-text">
+                                                        <span class="fas fa-lock"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-8">
+                                                </div>
+                                                <!-- /.col -->
+                                                <div class="col-4">
+                                                    <button type="button" class="btn btn-primary btn-block">令牌认证</button>
+                                                </div>
+                                                <!-- /.col -->
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane fade" id="custom-tabs-three-messages" role="tabpanel" aria-labelledby="custom-tabs-three-messages-tab">
+                                        <form name="messages" action="messages" method="post">
+                                            <div class="input-group mb-3">
+                                                <input name="mobile" id="mobile" type="phone" class="form-control" placeholder="请输入手机号码">
+                                                <div class="input-group-append">
+                                                    <div class="input-group-text">
+                                                        <span class="fas fa-phone"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <script type="text/javascript">
+                                                    function code_check(val) {
+                                                        if(val.length==4)
+                                                        {
+                                                            //提交verify检查输入和图形验证码一致
+                                                            $("#btn_sms").removeAttr("disabled")
+                                                            $("#btn_sms").attr("class","btn btn-secondary btn-block")
+                                                        }
+                                                        else {
+                                                            $("#btn_sms").attr("disabled", true)
+                                                            $("#btn_sms").attr("class","btn btn-default btn-block")
+                                                        }
+                                                    }
+                                                </script>
+
+                                                <input name="code" id="code" type="code" class="form-control" placeholder="请输入验证码" onKeyUp="code_check(this.value)">
+                                                <div class="input-group-append">
+                                                    <div class="input-group-text">
+                                                        <span class="fas fa-lock"></span>
+                                                    </div>
+                                                </div>
+                                                <script>
+                                                    function setSrcQuery(e, q) {
+                                                        var src  = e.src;
+                                                        var p = src.indexOf('?');
+                                                        if (p >= 0) {
+                                                            src = src.substr(0, p);
+                                                        }
+                                                        e.src = src + "?" + q
+                                                    }
+                                                    function reload(obj) {
+                                                        setSrcQuery(obj, "reload=" + (new Date()).getTime());
+                                                        return false;
+                                                    }
+                                                </script>
+                                                <div class="form-control" style="text-align:right;padding:5px 2px 5px 2px">
+                                                    <a href="#" onclick="reload(this.lastChild)"><img id="yzm" src="img/yzm.jpg" height="40" width="120"></a>
+                                                </div>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <input name="message" id="message" type="message" class="form-control" placeholder="请输入6位短信数字">
+                                                <div class="input-group-append">
+                                                    <div class="input-group-text">
+                                                        <span class="fas fa-sms"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-control" style="text-align:right;padding:5px 2px 5px 2px">
+                                                    <script type="text/javascript">
+                                                        var countdown=60;
+                                                        function settime(obj) {
+                                                            if (countdown == 0) {
+                                                                obj.setAttribute("class","btn btn-default btn-block")
+                                                                obj.value="发送短信验证码  "
+                                                                countdown = 60
+                                                                $.get("captcha", function(data){
+                                                                    if (data.code == "00000")
+                                                                    {
+                                                                        $("#yzm").attr("src", data.imageUrl)
+                                                                        $("#yzm").attr("name", data.captchaId)
+                                                                        $("#code").focus()
+                                                                    }
+                                                                });
+                                                                return
+                                                            } else {
+                                                                if (countdown == 60)
+                                                                    $.get("verify/"+$("#yzm").attr("name")+"/"+$("#code").val()+"/"+$("#mobile").val(), function(data){
+                                                                        if (data.code == "00000")
+                                                                        {
+                                                                            $("#message").focus()
+                                                                            toastr.success('验证码通过，请查看输入短信通知')
+                                                                        }else {
+                                                                            countdown=0
+                                                                            toastr.info('验证码不符，请重新输入验证码')
+                                                                        }
+                                                                    });
+                                                                obj.setAttribute("disabled", true);
+                                                                obj.setAttribute("class","btn btn-success btn-block")
+                                                                obj.value="重新发送需(" + countdown + "秒)  "
+                                                                if( countdown > 0 )
+                                                                    countdown--
+                                                            }
+                                                            setTimeout(function() {
+                                                                    settime(obj) }
+                                                                ,1000)
+                                                        }
+
+                                                    </script>
+                                                    <input type="button" class="btn btn-default btn-block disabled" id="btn_sms" value="发送短信验证码  " disabled onclick="settime(this)" />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-8">
+                                                    <div class="icheck-primary">
+                                                        <input type="checkbox" id="rememberp" name="rememberp">
+                                                        <label for="rememberp">
+                                                            记住手机号
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <!-- /.col -->
+                                                <div class="col-4">
+                                                    <button type="button" class="btn btn-primary btn-block" onclick="btnSubmit('messages','messages')">短信认证</button>
+                                                </div>
+                                                <!-- /.col -->
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+
+            </div>
+        </div>
+
+        {{template "tfooter" .}}
+
+    </div>
+
+    {{template "tjs" .}}
+    <script>
+        $.get("captcha", function(data){
+            if (data.code == "00000")
+            {
+                $("#yzm").attr("src", data.imageUrl)
+                $("#yzm").attr("name", data.captchaId)
+                if (data.remember)
+                {
+                    $("input[name='user']").val(data.user)
+                    $("input[name='remember']").attr("checked",true)
+                }else {
+                    $("input[name='user']").val("")
+                    $("input[name='remember']").attr("checked",false)
+                }
+                if (data.rememberp)
+                {
+                    $("input[name='mobile']").val(data.mobile)
+                    $("input[name='rememberp']").attr("checked",true)
+                }else {
+                    $("input[name='mobile']").val("")
+                    $("input[name='rememberp']").attr("checked",false)
+                }
+            }
+        });
+        function btnSubmit(url,id) {
+            //提交表单
+            $.ajax({
+                type: 'POST',
+                async: false,
+                url: url,
+                data: $("form[name='" + id + "']").serialize(),
+                success: function (data, status) {
+                    if (data.code == "00000") {
+                        toastr.success('登录通过，欢迎用户:' + data.user + data.msg )
+                        if( data.url.length > 0 )
+                            setTimeout( "window.location.href='"+data.url+"';", 1500 )
+                    } else {
+                        toastr.info('验证失败，请重新登录:' + JSON.stringify(data) )
+                    }
+                }
+            })
+            //可以阻止默认form提交事件event.preventDefault()
+        }
+    </script>
+</body>
+</html>

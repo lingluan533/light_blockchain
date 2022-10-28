@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {{template "thead" .}}
+    <title>数字保险箱</title>
+    <!--
+
+    -->
+    {{template "tlink" .}}
+
+
+</head>
+
+<body class="bg03">
+    <div class="container">
+        {{template "tmenu" .}}
+
+        <div class="row tm-mt-big">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="bg-white tm-block">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="tm-block-title d-inline-block">用户{{.UserName}}的防御策略</h2>
+                        </div>
+                    </div>
+                    <div class="row mt-4 tm-edit-product-row">
+                        <div class="col-md-12">
+                            <!-- Widget: user widget style 1 -->
+                            <div class="card card-widget widget-user shadow">
+                                <!-- Add the bg color to the header using any of the bg-* classes -->
+                                <div class="widget-user-header bg-info">
+                                    <h3 class="widget-user-username">{{.UserName}}</h3>
+                                    <h5 class="widget-user-desc">{{.Nice}}</h5>
+                                </div>
+                                <div class="widget-user-image">
+                                    <img class="img-circle elevation-2" src="{{.UserAvatar}}" alt="User Avatar">
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row">
+                                        <div class="col-sm-4 border-right">
+                                            <div class="description-block">
+                                                <span class="description-text">网络认证情况</span>
+                                                <h5 class="description-header">联网模式：1、盒子自动；2、用户登录；3、不联网</h5>
+                                                <h5 class="description-header">本周联网次数：10次</h5>
+                                                <h5 class="description-header">当前计费时长：10h</h5>
+
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                        <!-- /.col -->
+                                        <div class="col-sm-4 border-right">
+                                            <div class="description-block">
+                                                <span class="description-text">用户认证情况</span>
+                                                <h5 class="description-header">已开通认证：1、静态口令；2、HASH身份；3、手机验证；</h5>
+                                                <h5 class="description-header">用户登录次数：100次</h5>
+                                                <h5 class="description-header">上次登录设备IP：192.168.216.12</h5>
+                                                <h5 class="description-header">上次登录设备MAC：00.0E.12.12.12</h5>
+
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                        <!-- /.col -->
+                                        <div class="col-sm-4">
+                                            <div class="description-block">
+                                                <span class="description-text">零信任管控情况</span>
+                                                <h5 class="description-header">生效策略数：3条</h5>
+                                                <h5 class="description-header">总体健康值：90%</h5>
+                                                <h5 class="description-header">异常事件数量：10次</h5>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                        <!-- /.col -->
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+                            </div>
+                            <!-- /.widget-user -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- row -->
+                    <div class="row mt-4 tm-edit-product-row">
+                        <div class="col-md-12" >
+
+                            <div class="container mt-5">
+                                <ul class="row nav nav-tabs">
+                                        <li class="align-middle">
+                                            <a href="#network" data-toggle="tab" class="text-primary">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <span class="fa-stack-1x text-white">1</span>
+      </span>
+
+                                            <div class="d-inline-block">
+                                                <p class="mb-1 fa fa-check">设置网络登录认证：</p>
+                                            </div>
+                                            </a>
+                                        </li>
+                                        <span class="col border border-primary mx-3 my-auto"></span>
+                                        <li class="align-middle">
+                                            <a href="#account" data-toggle="tab" class="text-primary">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <span class="fa-stack-1x text-white">2</span>
+      </span>
+
+                                            <div class="d-inline-block">
+                                                <p class="mb-1 fa">设置用户登录认证：</p>
+                                            </div>
+                                            </a>
+                                        </li>
+                                        <span class="col border border-primary mx-3 my-auto"></span>
+                                        <li class="align-middle">
+                                            <a href="#zero" data-toggle="tab" class="text-primary">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <span class="fa-stack-1x text-white">3</span>
+      </span>
+
+                                            <div class="d-inline-block">
+                                                <p class="mb-1 fa">设置环境零信任策略：</p>
+                                            </div>
+                                            </a>
+                                        </li>
+
+                                </ul>
+
+
+                                <div class="m-5"></div>
+
+                                <div class="tab-content" id="dtabContent">
+                                    <div class="tab-pane fade show active" id="network">
+                                        <form name="network">
+                                        <div class="card card-default">
+                                            <div class="card-header">
+                                                <h3 class="card-title">网络登录认证：默认盒子免费开放式联网服务</h3>
+
+                                                <div class="card-tools">
+                                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                                        <i class="fas fa-minus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <!-- /.card-header -->
+                                            <div class="card-body" style="display: block;">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form-group clearfix">
+                                                            <div class="icheck-primary d-inline">
+                                                                <input type="radio" id="radioNetwork1" name="r1" checked="">
+                                                                <label for="radioNetwork1">
+                                                                    盒子自动联网
+                                                                </label>
+                                                            </div>
+                                                            <span class="mx-5"></span>
+                                                            <div class="icheck-primary d-inline">
+                                                                <input type="radio" id="radioNetwork2" name="r1">
+                                                                <label for="radioNetwork2">
+                                                                    用户登录联网
+                                                                </label>
+                                                            </div>
+                                                            <span class="mx-5"></span>
+                                                            <div class="icheck-primary d-inline">
+                                                                <input type="radio" id="radioNetwork3" name="r1">
+                                                                <label for="radioNetwork3">
+                                                                    不联网
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.row -->
+
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="card">
+                                                            <div class="card-header d-flex p-0">
+                                                                <ul class="nav nav-pills p-2">
+                                                                    <li class="nav-item"><a class="nav-link active" href="#tab_n1"  data-toggle="pill">管理联网设备</a></li>
+                                                                    <li class="nav-item"><a class="nav-link" href="#tab_n2" data-toggle="pill">设备上下线日志</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div class="tab-content">
+                                                                    <div class="tab-pane active" id="tab_n1">aaa
+                                                                    </div>
+                                                                    <!-- /.tab-pane -->
+                                                                    <div class="tab-pane" id="tab_n2">bbb
+                                                                    </div>
+                                                                    <!-- /.tab-pane -->
+                                                                </div>
+                                                                <!-- /.tab-content -->
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.row -->
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="card">
+                                                            <div class="card-header d-flex p-0">
+                                                                <ul class="nav nav-pills p-2">
+                                                                    <li class="nav-item"><a class="nav-link active" href="#tab_a1"  data-toggle="pill">管理联网用户</a></li>
+                                                                    <li class="nav-item"><a class="nav-link" href="#tab_a2" data-toggle="pill">管理员操作日志</a></li>
+                                                                    <li class="nav-item"><a class="nav-link" href="#tab_a3" data-toggle="pill">用户操作日志</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div class="tab-content">
+                                                                    <div class="tab-pane active" id="tab_a1">aaa
+                                                                    </div>
+                                                                    <!-- /.tab-pane -->
+                                                                    <div class="tab-pane" id="tab_a2">bbb
+                                                                    </div>
+                                                                    <!-- /.tab-pane -->
+                                                                    <div class="tab-pane" id="tab_a3">ccc
+                                                                    </div>
+                                                                    <!-- /.tab-pane -->
+                                                                </div>
+                                                                <!-- /.tab-content -->
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.row -->
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="card">
+                                                            <div class="card-header d-flex p-0">
+                                                                <ul class="nav nav-pills p-2">
+                                                                    <li class="nav-item"><a class="nav-link active" href="#tab_s1"  data-toggle="pill">管理盒子网络服务</a></li>
+                                                                    <li class="nav-item"><a class="nav-link" href="#tab_s2" data-toggle="pill">URL访问日志</a></li>
+                                                                    <li class="nav-item"><a class="nav-link" href="#tab_s3" data-toggle="pill">资源下载日志</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div class="tab-content">
+                                                                    <div class="tab-pane active" id="tab_s1">aaa
+                                                                    </div>
+                                                                    <!-- /.tab-pane -->
+                                                                    <div class="tab-pane" id="tab_s2">bbb
+                                                                    </div>
+                                                                    <!-- /.tab-pane -->
+                                                                    <div class="tab-pane" id="tab_s3">ccc
+                                                                    </div>
+                                                                    <!-- /.tab-pane -->
+                                                                </div>
+                                                                <!-- /.tab-content -->
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.row -->
+                                            </div>
+                                            <!-- /.card-body -->
+                                            <div class="card-footer" style="display: block;">
+                                                <button type="button" class="btn btn-primary" onclick="btnSubmit('defense_network','network')">应用</button>
+
+                                            </div>
+
+                                        </div>
+                                        </form>
+
+                                    </div>
+                                    <div class="tab-pane fade" id="account">
+                                        <form name="account">
+                                        <div class="card card-default">
+                                            <div class="card-header">
+                                                <h3 class="card-title">用户登录认证：默认使用口令方式</h3>
+
+                                                <div class="card-tools">
+                                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                                        <i class="fas fa-minus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <!-- /.card-header -->
+                                            <div class="card-body" style="display: block;">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form-group clearfix">
+                                                            <div class="icheck-primary d-inline">
+                                                                <input type="checkbox" id="radioAccount1" name="r1" checked="">
+                                                                <label for="radioAccount1">
+                                                                    静态口令
+                                                                </label>
+                                                            </div>
+                                                            <span class="mx-5"></span>
+                                                            <div class="icheck-primary d-inline">
+                                                                <input type="checkbox" id="radioAccount2" name="r1" checked="">
+                                                                <label for="radioAccount2">
+                                                                    HASH身份
+                                                                </label>
+                                                            </div>
+                                                            <span class="mx-5"></span>
+                                                            <div class="icheck-primary d-inline">
+                                                                <input type="checkbox" id="radioAccount3" name="r1" checked="">
+                                                                <label for="radioAccount3">
+                                                                    手机验证
+                                                                </label>
+                                                            </div>
+                                                            <span class="mx-5"></span>
+                                                            <div class="icheck-primary d-inline">
+                                                                <input type="checkbox" id="radioAccount4" name="r1" checked="">
+                                                                <label for="radioAccount4">
+                                                                    邮箱验证
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.row -->
+
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="card">
+                                                            <div class="card-header d-flex p-0">
+                                                                <ul class="nav nav-pills p-2">
+                                                                    <li class="nav-item"><a class="nav-link active" href="#tab_u1"  data-toggle="pill">管理静态口令规则</a></li>
+                                                                    <li class="nav-item"><a class="nav-link" href="#tab_u2" data-toggle="pill">管理HASH身份和令牌</a></li>
+                                                                    <li class="nav-item"><a class="nav-link" href="#tab_u3" data-toggle="pill">用户登录日志</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div class="tab-content">
+                                                                    <div class="tab-pane active" id="tab_u1">aaa
+                                                                    </div>
+                                                                    <!-- /.tab-pane -->
+                                                                    <div class="tab-pane" id="tab_u2">bbb
+                                                                    </div>
+                                                                    <!-- /.tab-pane -->
+                                                                    <div class="tab-pane" id="tab_u3">ccc
+                                                                    </div>
+                                                                    <!-- /.tab-pane -->
+                                                                </div>
+                                                                <!-- /.tab-content -->
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.row -->
+                                            </div>
+                                            <!-- /.card-body -->
+                                            <div class="card-footer" style="display: block;">
+                                                <button type="button" class="btn btn-primary" onclick="btnSubmit('defense_account','account')">应用</button>
+
+                                            </div>
+
+                                        </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane fade" id="zero">
+                                        <form name="zero">
+                                        <div class="card card-default">
+                                            <div class="card-header">
+                                                <h3 class="card-title">环境零信任策略：默认使用工作时间策略控制</h3>
+
+                                                <div class="card-tools">
+                                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                                        <i class="fas fa-minus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <!-- /.card-header -->
+                                            <div class="card-body" style="display: block;">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form-group clearfix">
+                                                            <div class="icheck-primary d-inline">
+                                                                <input type="checkbox" id="radioZero1" name="r1" checked="">
+                                                                <label for="radioZero1">
+                                                                    工作时间范围
+                                                                </label>
+                                                            </div>
+                                                            <span class="mx-5"></span>
+                                                            <div class="icheck-primary d-inline">
+                                                                <input type="checkbox" id="radioZero2" name="r1" checked="">
+                                                                <label for="radioZero2">
+                                                                    上网特征
+                                                                </label>
+                                                            </div>
+                                                            <span class="mx-5"></span>
+                                                            <div class="icheck-primary d-inline">
+                                                                <input type="checkbox" id="radioZero3" name="r1" checked="">
+                                                                <label for="radioZero3">
+                                                                    客户端的状态
+                                                                </label>
+                                                            </div>
+                                                            <span class="mx-5"></span>
+                                                            <div class="icheck-primary d-inline">
+                                                                <input type="checkbox" id="radioZero4" name="r1" checked="">
+                                                                <label for="radioZero4">
+                                                                    异常增强挑战
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.row -->
+
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="card">
+                                                            <div class="card-header d-flex p-0">
+                                                                <ul class="nav nav-pills p-2">
+                                                                    <li class="nav-item"><a class="nav-link active" href="#tab_z1"  data-toggle="pill">管理工作时间范围</a></li>
+                                                                    <li class="nav-item"><a class="nav-link" href="#tab_z2"  data-toggle="pill">管理上网特征</a></li>
+                                                                    <li class="nav-item"><a class="nav-link" href="#tab_z3"  data-toggle="pill">管理客户端状态</a></li>
+                                                                    <li class="nav-item"><a class="nav-link" href="#tab_z4"  data-toggle="pill">管理异常事件规则</a></li>
+                                                                    <li class="nav-item"><a class="nav-link" href="#tab_z5" data-toggle="pill">异常事件日志</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div class="tab-content">
+                                                                    <div class="tab-pane active" id="tab_z1">aaa
+                                                                    </div>
+                                                                    <!-- /.tab-pane -->
+                                                                    <div class="tab-pane" id="tab_z2">bbb
+                                                                    </div>
+                                                                    <!-- /.tab-pane -->
+                                                                    <div class="tab-pane" id="tab_z3">ccc
+                                                                    </div>
+                                                                    <!-- /.tab-pane -->
+                                                                    <div class="tab-pane" id="tab_z4">ddd
+                                                                    </div>
+                                                                    <!-- /.tab-pane -->
+                                                                    <div class="tab-pane" id="tab_z5">eee
+                                                                    </div>
+                                                                    <!-- /.tab-pane -->
+
+                                                                </div>
+                                                                <!-- /.tab-content -->
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.row -->
+                                            </div>
+                                            <!-- /.card-body -->
+                                            <div class="card-footer" style="display: block;">
+                                                <button type="button" class="btn btn-primary" onclick="btnSubmit('defense_zero','zero')">应用</button>
+
+                                            </div>
+
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- /.container -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- row -->
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- row -->
+
+        {{template "tfooter" .}}
+
+    </div>
+
+    {{template "tjs" .}}
+
+    <script>
+        //导航栏选择
+        $(".navbar ui li a").removeClass("active");
+        $("#m_accounts").addClass("active");
+
+        //3个设置tab页切换
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            // 获取已激活的标签页的名称
+            $(e.target).parent().parent().find(".mb-1").removeClass("fa-check");
+            $(e.target).find(".mb-1").addClass("fa-check");
+            //$(e.target).parent().parent().find("a").removeClass("text-primary");
+            //$(e.target).parent().parent().find("a").addClass("text-muted");
+            //$(e.target).removeClass("text-muted");
+            //$(e.target).addClass("text-primary");
+
+            // 获取前一个激活的标签页的名称
+            //$(e.relatedTarget).find(".mb-1").removeClass("fa-check");
+
+        });
+
+
+        function btnSubmit(url,id) {
+
+            //提交表单
+            $.ajax({
+                type: 'POST',
+                async: false,
+                url: url,
+                data: $("form[name='" + id + "']").serialize(),
+                success: function (data, status) {
+                    if (data.code == "00000") {
+                        toastr.success('设置用户{{.UserName}}防御策略'+id+':' + data.msg )
+
+                        if( data.url.length > 0 )
+                            setTimeout( "window.location.href='"+data.url+"';", 1500 )
+                    } else {
+                        toastr.info('处理失败:' + JSON.stringify(data) )
+                    }
+                }
+            })
+            //可以阻止默认form提交事件event.preventDefault()
+        }
+
+    </script>
+</body>
+</html>

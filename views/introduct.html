@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{template "thead" .}}
+    <title>Introduction</title>
+
+    {{template "tlink" .}}
+
+    <link rel="stylesheet" href="plugins/slick/slick.css">
+    <link rel="stylesheet" href="plugins/slick/slick-theme.css">
+    <link rel="stylesheet" href="plugins/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="css/tooplate-infinite-loop.css"/>
+    <link rel="stylesheet" href="css/templatemo-plot-listing.css">
+
+    <style>
+        div.tab {
+            margin-left: 100px;
+            float: left;
+            border: 0px solid #ccc;
+            background-color: white;
+            width: 30%;
+            padding: 50px 10px 20px;
+
+
+        }
+
+        /* Style the buttons inside the tab */
+        div.tab button {
+            display: block;
+            background-color: inherit;
+            color: #37A;
+            padding: 22px 16px;
+            width: 100%;
+            border: none;
+            outline: none;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 20px;
+            font-weight: bold;
+
+        }
+
+        /* Change background color of buttons on hover */
+        div.tab button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current "tab button" class */
+        div.tab button.active {
+            background-color: #ccc;
+        }
+
+        /* Style the tab content */
+        div.tabcontent {
+            float: left;
+            padding-top: 50px;
+            padding-left: 150px;
+            padding-right: 150px;
+
+            border: 0.1px solid #ccc;
+            width: 50%;
+            border-left: none;
+            text-align: center;
+
+        }
+
+
+
+        .aaa {
+            font-weight: bold;
+            color: black;
+            padding: 20px;
+            line-height: 1.5;
+            background-color: rgb(230,230,230);
+
+            display: block;
+        }
+
+        .aaa:link {
+            text-decoration: none;
+        }
+
+        /* unvisited link */
+        .aaa:visited {
+            text-decoration: none;
+
+        }
+
+        /* visited link */
+        .aaa:hover {
+            text-decoration: none;
+            background-color: #2e6da4;
+        }
+
+        /* mouse over link */
+        .aaa:active {
+            text-decoration: none;
+            background-color: white;
+        }
+
+        .service-item {
+            margin-bottom: 10px;
+            padding: 50px;
+            background-color: rgba(250, 250, 250, 0.1);
+            transition: all 0.5s;
+        }
+
+        .service-item .fa {
+            font-size: 72px;
+            padding: 20px 0;
+            transition: all 0.5s;
+        }
+
+        .service-item h4 {
+            transition: all 0.5s;
+        }
+
+        .service-item p {
+            transition: all 0.5s;
+        }
+
+        .service-item:hover {
+            background-color: deepskyblue;
+        }
+
+        .service-item:hover h4 {
+            color: #1e1e1e;
+        }
+
+        .service-item:hover p {
+            color: #4a4a4a;
+        }
+
+        .service-item:hover .fa {
+            color: #000;
+        }
+
+    </style>
+
+</head>
+
+<body class="">
+<!-- Hero section -->
+<section id="infinite" class="text-white tm-font-big tm-parallax">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md tm-navbar" id="tmNav" style="height:auto;margin-top:0px;background-color: black ;opacity:0.7">
+        <div class="container">
+            <div class="tm-next">
+                <a href="#infinite" class="navbar-brand">私人云</a>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars navbar-toggler-icon"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link tm-nav-link" href="#infinite">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link tm-nav-link" href="#whatwedo">关于盒子</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link tm-nav-link" href="#testimonials">管理和下载</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link tm-nav-link" href="#gallery">行业方案</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link tm-nav-link" href="#document">文档</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link tm-nav-link" href="#" onclick="location.href='index.html'">登录</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="text-center tm-hero-text-container">
+        <div class="tm-hero-text-container-inner">
+            <h2 class="tm-hero-title">私人云盒子</h2>
+            <span class="tm-hero-subtitle">
+                基于区块链控制的数字保险箱系统
+                <br>实现安全存储+分布式共享</br>
+            </span>
+        </div>
+    </div>
+
+    <div class="tm-next tm-intro-next">
+        <a href="#whatwedo" class="text-center tm-down-arrow-link">
+            <i class="fas fa-2x fa-arrow-down tm-down-arrow"></i>
+        </a>
+    </div>
+</section>
+
+<section id="whatwedo" class="tm-section-pad-top">
+
+    <div class="container">
+
+        <div class="row tm-content-box"><!-- first row -->
+            <div class="col-lg-12 col-xl-12">
+                <div class="tm-intro-text-container">
+                    <h2 class="tm-text-primary mb-4 tm-section-title">关于盒子</h2>
+                    <div style="display:flex">
+                        <p class="mb-4 tm-intro-text">
+                            私人云存储盒子内置ARM芯片，使用RK3399 CPU，4G运行内存，搭配128G TF内存卡和定制网卡，支持数据文件的AES快速加解密和高速存储，提供5G Wi-Fi上网功能。
+                            <br>当终端连接盒子发射的Wi-Fi热点后，即可实现对盒子数据的增、删、改、查等操作。
+                        </p>
+                        <img src="img/secure_dbox.png" float="right"></img>
+
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- first row -->
+
+        <div class="row tm-content-box"><!-- second row -->
+            <div class="col-lg-1">
+                <i class="far fa-3x fa-chart-bar text-center tm-icon"></i>
+            </div>
+            <div class="col-lg-5">
+                <div class="tm-intro-text-container">
+                    <h2 class="tm-text-primary mb-4">需求</h2>
+                    <p class="mb-4 tm-intro-text">
+                        您是否有以下困扰：<br>
+                        1、公有云上传、下载速率慢<br>
+                        2、担心数据存储于公有云的安全问题<br>
+                        3、无法控制数据的二次流转和共享<br>
+                        4、数据误删或修改后无法复原<br>
+                        5、U盘丢失和网盘数据泄露
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-1">
+                <i class="far fa-3x fa-comment-alt text-center tm-icon"></i>
+            </div>
+            <div class="col-lg-5">
+                <div class="tm-intro-text-container">
+                    <h2 class="tm-text-primary mb-4">应用场景</h2>
+                    <p class="mb-4 tm-intro-text">
+                        1、分级安全存储 <br>2、受控流转<br>3、分布式共享<br>4、数据管理<br>5、用户体验
+                    </p>
+                </div>
+            </div>
+
+        </div><!-- second row -->
+
+        <div class="row tm-content-box"><!-- third row -->
+            <div class="col-lg-1">
+                <i class="fas fa-3x fa-fingerprint text-center tm-icon"></i>
+            </div>
+            <div class="col-lg-5">
+                <div class="tm-intro-text-container">
+                    <h2 class="tm-text-primary mb-4">分布式数字保险箱</h2>
+                    <p class="mb-4 tm-intro-text">
+                        1、加密存储隐私数据：存储盒子的存储空间分为公共空间和私密空间，隐私数据经过对称加密后上传至私密空间，且控制解密数据操作仅能在盒子中进行。<br>
+                        2、定制开发轻量级区块链：私人云存储盒子首先将用户的数字证书、用户操作行为和数据摘要等文件分别存放在“可信根存证”、“用户行为记录存证”和“隐私文件存证”目录下，目录将会定时完成存证上链。<br>
+                        3、用户操作重要敏感数据后，需对该数据摘要进行签名并上链存证，以有效防止数据被恶意篡改。
+                    </p>
+                    <!--                          <div class="tm-continue">
+                                                <a href="#testimonials" class="tm-intro-text tm-btn-primary">Learn More</a>
+                                            </div>-->
+                </div>
+            </div>
+
+            <div class="col-lg-1">
+                <i class="fas fa-3x fa-users text-center tm-icon"></i>
+            </div>
+            <div class="col-lg-5">
+                <div class="tm-intro-text-container">
+                    <h2 class="tm-text-primary mb-4">分布式自动共享同步</h2>
+                    <p class="mb-4 tm-intro-text">
+                        1、构建分布式共享存储网络 —— 内网穿透技术<br>
+                        2、通过Nginx和WebDAV搭建文件共享服务器，实现网盘功能<br>
+                        3、Rclone插件用于终端和私人云存储盒子之间目录的同步<br>
+                        4、Syncthing插件实现私人云盒子间文件的定时同步
+                    </p>
+
+                </div>
+            </div>
+
+        </div><!-- third row -->
+        <div class="row tm-content-box"><!-- first row -->
+            <div class="col-lg-12 col-xl-12">
+                <img src="img/dbox_home.png" width="100%"></img>
+            </div>
+        </div><!-- first row -->
+
+    </div>
+
+</section>
+
+<section id="testimonials" class="tm-section-pad-top ">
+    <div class="container tm-testimonials-content">
+        <div class="row">
+            <div class="col-lg-12 tm-content-box">
+
+                <h2 class="text-white text-center mb-4 tm-section-title" >管理和下载</h2>
+
+
+                <p class="mx-auto  text-center" style="background-color: #4e555b ;color: #2cb74c">
+                    采用了两个盒子实现彼此共享文件的功能，分别为BOX1和BOX2，对他们共享的目录进行了本地磁盘挂载，<br>
+                    然后通过syncthing可以在页面上查看文件的同步状态。<br>
+                    管理员文档和用户文档中写明了使用的具体步骤，可以在下方点击下载所需要的文档以及插件。
+                </p>
+            </div>
+
+        </div>
+
+        <div class="row" style="">
+            <div class=" tab" style="opacity:0.7">
+                <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">私人云盒管理</button>
+                <button class="tablinks" onclick="openCity(event, 'Paris')">官方文档</button>
+                <button class="tablinks" onclick="openCity(event, 'Tokyo')">PC版连接助手</button>
+                <button class="tablinks" onclick="openCity(event, 'China')">安卓版连接助手</button>
+            </div>
+
+            <div id="London" class="tabcontent" style="">
+                <p class="mb-4 tm-intro-text" >
+                    <a class="aaa" href="http://192.168.216.197/" target="_blank">BOX1</a>
+                    <a class="aaa" href="http://192.168.216.197:800" target="_blank">BOX1挂载目录</a>
+                    <a class="aaa" href="http://192.168.216.197:8384" target="_blank">BOX1文件同步状态</a>
+                    <a class="aaa" href="http://192.168.216.198/" target="_blank">BOX2</a>
+                    <a class="aaa" href="http://192.168.216.199/" target="_blank">BOX3</a>
+                    <a class="aaa" href="http://192.168.216.200/" target="_blank">BOX4</a>
+                    <a class="aaa" href="http://192.168.216.201/" target="_blank">BOX5</a>
+                </p>
+            </div>
+
+            <div id="Paris" class="tabcontent" style="">
+                <p class="mb-4 tm-intro-text" >
+                    <a class="aaa" href="download/私人云盒联网等高级配置V3.docx" download="管理员出厂配置">管理员手册</a>
+                    <a class="aaa" href="download/智能连接助手操作手册.docx" download="智能连接助手操作手册">智能连接助手操作手册</a>
+                </p>
+            </div>
+
+            <div id="Tokyo" class="tabcontent" style="">
+                <p class="mb-4 tm-intro-text" >
+                    <a class="aaa"  href="download/ScaSetup32.exe"
+                         download="智能连接助手32.exe">智能连接助手32位</a>
+                    <a class="aaa"  href="download/ScaSetup64.exe"
+                       download="智能连接助手64.exe">智能连接助手64位</a>
+                </p>
+            </div>
+
+
+            <div id="China" class="tabcontent" style="">
+                <p class="mb-4 tm-intro-text" >
+                    <a class="aaa" href="download/安卓版rclone.apk"
+                         download="安卓版rclone.apk">安卓版助手</a>
+                    <a class="aaa" href="download/安卓版内网穿透.apk" download="内网穿透.apk">内网穿透</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-xl-4">
+            </div>
+            <div class="col-lg-8 col-xl-8">
+                <img src="img/dbox-n.png"></img>
+            </div>
+        </div>
+    </div>
+<!--    <div class="tm-bg-overlay"></div>-->
+</section>
+
+<section id="gallery" class="tm-section-pad-top">
+    <div class="popular-categories">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-heading">
+                        <h2>行业方案</h2>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="naccs">
+                        <div class="grid">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="menu">
+                                        <div class="first-thumb active">
+                                            <div class="thumb">
+                                                <span class="icon"><img src="img/search-icon-01.png" alt=""></span>
+                                                家庭
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="thumb">
+                                                <span class="icon"><img src="img/search-icon-02.png" alt=""></span>
+                                                医疗1
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="thumb">
+                                                <span class="icon"><img src="img/search-icon-03.png" alt=""></span>
+                                                医疗2
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="thumb">
+                                                <span class="icon"><img src="img/search-icon-04.png" alt=""></span>
+                                                养老
+                                            </div>
+                                        </div>
+                                        <div class="last-thumb">
+                                            <div class="thumb">
+                                                <span class="icon"><img src="img/search-icon-05.png" alt=""></span>
+                                                警务
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-9 align-self-center">
+                                    <ul class="nacc">
+                                        <li class="active">
+                                            <div>
+                                                <div class="thumb">
+                                                    <div class="row">
+                                                        <div class="col-lg-5 align-self-center">
+                                                            <div class="left-text">
+                                                                <h4>家庭场景</h4>
+                                                                <p>
+                                                                    1、全局公共空间<br>
+                                                                    所有节点的开放共享，文件直接在所有盒子中同步复制，默认策略同步到家庭大脑后，做受控流转和共享<br>
+
+                                                                    2、私密空间<br>
+                                                                    属性加密，指定用户在指定盒子中解密处理使用，无法明文离开盒子<br>
+
+                                                                    3、隐私文件、可信根、用户行为存证空间<br>
+                                                                    物联网各类终端放入这三个私人共享目录的文件可以自动存证上链到对应账本中（避免调用区块链的api接口过程），可溯源、可全生命周期管理、可认证控制访问和共享<br>
+                                                                </p>
+                                                                <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> Discover More</a></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-7 align-self-center">
+                                                            <div class="right-image">
+                                                                <img src="img/home1.png" alt="家庭场景1">
+                                                                <img src="img/home2.png" alt="家庭场景2">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <div class="thumb">
+                                                    <div class="row">
+                                                        <div class="col-lg-5 align-self-center">
+                                                            <div class="left-text">
+                                                                <h4>医疗场景1</h4>
+                                                                <p>
+                                                                    第一阶段：远程诊断<br>
+                                                                    1、医疗中心为患者提供远程诊断服务，免去患者排队挂号的麻烦，私人云存储盒子帮助患者和医生管理数据。<br>
+                                                                    第二阶段：医院治疗<br>
+                                                                    1、减少医疗人员与患者直接接触，防止交叉感染<br>
+                                                                    2、患者可轻松管理自己的数据，防止隐私泄漏<br>
+                                                                    3、患者家属可随时查看患者身体状况<br>
+                                                                </p>
+<!--                                                                <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> Explore More</a></div>-->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-7 align-self-center">
+                                                            <div class="right-image">
+                                                                <img src="img/medical1.jpg" alt="医疗场景1">
+                                                                <img src="img/medical2.jpg" alt="医疗场景2">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <div class="thumb">
+                                                    <div class="row">
+                                                        <div class="col-lg-5 align-self-center">
+                                                            <div class="left-text">
+                                                                <h4>医疗场景2</h4>
+                                                                <p>
+
+                                                                    第三阶段：远程复诊<br>
+                                                                    1、医疗服务中心提供远程复诊服务，减少排队挂号流程<br>
+                                                                    2、患者数据经过动态加密处理，仅能为指定医疗人员解密<br>
+                                                                    3、医疗人员能够有效管理患者数据<br>
+
+                                                                </p>
+<!--                                                                <div class="main-white-button"><a href="listing.html"><i class="fa fa-eye"></i> More Listing</a></div>-->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-7 align-self-center">
+                                                            <div class="right-image">
+                                                                <img src="img/medical3.jpg" alt="医疗场景3">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <div class="thumb">
+                                                    <div class="row">
+                                                        <div class="col-lg-5 align-self-center">
+                                                            <div class="left-text">
+                                                                <h4>养老看护场景</h4>
+                                                                <p>
+                                                                    传统养老看护：<br>
+                                                                    1、需专人时刻看护，资源耗费大<br>
+                                                                    2、事故发生时，无法明确责任<br>
+                                                                    3、专人看护费用昂贵<br>
+                                                                    智能养老看护：<br>
+                                                                    1、通过智能终端监控看护老人一举一动<br>
+                                                                    2、存证事故关键图片，可还原事故发生情景<br>
+                                                                    3、家属可随时随地查看老人行为活动<br>
+
+                                                                </p>
+<!--                                                                <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> Discover More</a></div>-->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-7 align-self-center">
+                                                            <div class="right-image">
+                                                                <img src="img/care1.jpg" alt="养老看护">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <div class="thumb">
+                                                    <div class="row">
+                                                        <div class="col-lg-5 align-self-center">
+                                                            <div class="left-text">
+                                                                <h4>智慧警务</h4>
+                                                                <p>
+                                                                    1、实时监控/事前预防<br>
+                                                                    日常巡逻全覆盖：私人云+智能安防机器人<br>
+                                                                    2、快速部署/事发控制<br>
+                                                                    民警侦察可视化：私人云+AR眼镜<br>
+                                                                </p>
+<!--                                                                <div class="main-white-button"><a rel="nofollow" href="https://templatemo.com/contact"><i class="fa fa-eye"></i> Read More</a></div>-->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-7 align-self-center">
+                                                            <div class="right-image">
+                                                                <img src="img/police1.jpg" alt="智慧警务1">
+                                                                <img src="img/police2.jpg" alt="智慧警务2">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-5 align-self-center">
+                                                            <div class="left-text">
+                                                                <p>
+                                                                    3、指挥调度/事发处理<br>
+                                                                    应急调度多部门：私人云+智能传感设备<br>
+                                                                    4、行动实施/事后追溯<br>
+                                                                    嫌犯追捕无死角：私人云+无人机<br>
+
+                                                                </p>
+                                                                <!--                                                                <div class="main-white-button"><a rel="nofollow" href="https://templatemo.com/contact"><i class="fa fa-eye"></i> Read More</a></div>-->
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-7 align-self-center">
+                                                            <div class="right-image">
+                                                                <img src="img/police3.png" alt="智慧警务3">
+                                                                <img src="img/police4.png" alt="智慧警务4">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="document" class="tm-section-pad-top">
+    <div class="container tm-container-gallery">
+
+        <div class="row tm-content-box"><!-- first row -->
+            <div class="col-lg-12 col-xl-12">
+                <div class="tm-intro-text-container">
+                    <h2 class="tm-text-primary mb-4 tm-section-title">文档</h2>
+                    <h3 class="tm-hero-title">轻量级区块链：</h3>
+                    <img src="img/light-bc.png" width="100%"></img>
+
+                    <div style="display:flex">
+                        <p class="mb-4 tm-intro-text">
+                            实现分域分层区块划分与隔离的轻量化机制.<br>
+                            1、问题：针对物联网拥有海量异质设备、存在通信资源受限、运算与存储资源不均衡<br>
+                            2、可循环再生：基于物联网技术的轻量级可循环再生的区块技术<br>
+                            3、分类分域：物理网分类分域安全区块划分与隔离<br>
+                            4、局部轻量化：局部轻量级区块链重生<br>
+                            5、终端赋能：终端数据上链策略，如采用芯片<br>
+                            6、优化节点选取：划分不同类型网域，选择适配的数据处理通信，匹配不同环境中合适的参与节点组网，实现区块链高性能计算、共识、存储。
+                        </p>
+
+                    </div>
+                    <img src="img/bc-scope.png" width="100%"></img>
+                </div>
+            </div>
+
+        </div><!-- first row -->
+
+        <div class="row tm-content-box">
+            <div class="col-lg-1">
+                <i class="far fa-3x fa-chart-bar text-center tm-icon"></i>
+            </div>
+            <div class="col-md-5">
+                <div class="service-item">
+                    <h4>集群信息</h4>
+                    <p>
+                        Id string<br>
+                        Status string<br>
+                        Name string<br>
+                        PeerAddrs string<br>
+                        ClientAddrs string<br>
+                        IsLearner string<br>
+                        Name-box1<br>
+                        <!-- <br>-->
+                        <!-- -->
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-1">
+                <i class="far fa-3x fa-comment-alt text-center tm-icon"></i>
+            </div>
+            <div class="col-md-5">
+                <div class="service-item">
+                    <h4>单节点信息</h4>
+                    <p>
+                        Endpoint string<br>
+                        Id string<br>
+                        Version string<br>
+                        DbSize string<br>
+                        IsLeader string<br>
+                        IsLearner string<br>
+                        RaftTerm string<br>
+                        RaftIndex string<br>
+                        RaftAppliedIndex string<br>
+                        AllKeyCount string<br>
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-1">
+                <i class="fas fa-3x fa-list-alt text-center tm-icon"></i>
+            </div>
+            <div class="col-md-5">
+                <div class="service-item">
+                    <h4>分钟块打包自动任务情况</h4>
+                    <p>
+                        LedgerName string//账本名称<br>
+                        PackageBlockIndex string//打包块索引<br>
+                        PackageTime string//打包时间<br>
+                        PackageData string//打包的数据<br>
+                        PackagingIndex string//正在打包块索引
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-1">
+                <i class="fas fa-3x fa-users text-center tm-icon"></i>
+            </div>
+            <div class="col-md-5">
+                <div class="service-item">
+                    <h4>五类账本信息</h4>
+                    <p>
+                        LedgerName string//账本名称<br>
+                        DataCount string//数据条目<br>
+                        DataSize string//数据大小<br>
+                        DelayDataCount string//延时数据条目
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-1">
+                <i class="fas fa-3x fa-network-wired text-center tm-icon"></i>
+            </div>
+            <div class="col-md-11">
+                <div class="service-item">
+                    <h4>资源效能占用</h4>
+                    <div style="display: block;" >
+                        <div style="float: left; width: 40%">
+                            <p>
+                                基于异步一致性：<br>
+                                1、Redis：缓存模块，提供批量存证和实时交易接口<br>
+                                2、Etcd：共识模块，自动生成区块头，数据交互，异步持久化存储<br>
+                                3、Tdengine：存储模块，“一个采集点一张表”和分块连续存储。
+                            </p>
+
+                        </div>
+                        <div style="float: right; width: 40%">
+                            <p>
+                                系统性能：<br>
+                                1、在网络带宽不低于 100 Mbps 时，吞吐量达到 3000TPS以上，延迟低于 200 ms，区块链网络中分布式节点网络共识延迟增幅低于 100 ms；<br>
+                                2、基于提出的时序再生区块链，支持动态扩展节点，时序创块后吞吐量提高 200%；<br>
+                                3、基于提出的HRAFT共识和RPoW渐进增强证明，可大幅减少工作量证明计算量；
+                            </p>
+                        </div>
+                    </div>
+                    <img src="img/bc-high-performance.png" width="100%"></img>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row tm-content-box">
+            <div class="tm-next tm-intro-next">
+                <a href="#infinite" class="text-center tm-down-arrow-link">
+                    <i class="fas fa-2x fa-arrow-circle-up tm-down-arrow"></i>
+                </a>
+            </div>
+        </div>
+
+        {{template "tfooter" .}}
+    </div>
+
+</section>
+
+{{template "tjs" .}}
+<script src="plugins/slick/slick.min.js"></script>
+<script src="plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="js/easing.min.js"></script>
+<script src="js/jquery.singlePageNav.min.js"></script>
+
+
+    <script>
+        function getOffSet() {
+            var _offset = 450;
+            var windowHeight = window.innerHeight;
+
+            if (windowHeight > 500) {
+                _offset = 400;
+            }
+            if (windowHeight > 680) {
+                _offset = 300
+            }
+            if (windowHeight > 830) {
+                _offset = 210;
+            }
+
+            return _offset;
+        }
+
+        function setParallaxPosition($doc, multiplier, $object) {
+            var offset = getOffSet();
+            var from_top = $doc.scrollTop(),
+                bg_css = 'center ' + (multiplier * from_top - offset) + 'px';
+            $object.css({"background-position": bg_css});
+        }
+
+        // Parallax function
+        // Adapted based on https://codepen.io/roborich/pen/wpAsm
+        /**
+         * @param {*} $object
+         * @param {*} multiplier
+         * @param {boolean} forceSet
+         */
+        var background_image_parallax = function ($object, multiplier, forceSet) {
+            multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.5;
+            multiplier = 1 - multiplier;
+            var $doc = $(document);
+            // $object.css({"background-attatchment" : "fixed"});
+
+            if (forceSet) {
+                setParallaxPosition($doc, multiplier, $object);
+            } else {
+                $(window).scroll(function () {
+                    setParallaxPosition($doc, multiplier, $object);
+                });
+            }
+        };
+
+        var background_image_parallax_2 = function ($object, multiplier) {
+            multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.5;
+            multiplier = 1 - multiplier;
+            var $doc = $(document);
+            $object.css({"background-attachment": "fixed"});
+
+
+        };
+
+        $(function () {
+            // Hero Section - Background Parallax
+            background_image_parallax($(".tm-parallax"), 0.30, false);
+            background_image_parallax_2($("#contact"), 0.80);
+            background_image_parallax_2($("#testimonials"), 0.80);
+            background_image_parallax_2($("#document"), 0.80);
+
+            // Handle window resize
+            window.addEventListener('resize', function () {
+                background_image_parallax($(".tm-parallax"), 0.30, true);
+            }, true);
+
+            // Detect window scroll and update navbar
+            $(window).scroll(function (e) {
+                if ($(document).scrollTop() > 120) {
+                    $('.tm-navbar').addClass("scroll");
+                } else {
+                    $('.tm-navbar').removeClass("scroll");
+                }
+            });
+
+            // Close mobile menu after click
+            $('#tmNav a').on('click', function () {
+                $('.navbar-collapse').removeClass('show');
+            })
+
+            // Scroll to corresponding section with animation
+            $('#tmNav').singlePageNav({
+                'easing': 'easeInOutExpo',
+                'speed': 600
+            });
+
+            // Add smooth scrolling to all links
+            // https://www.w3schools.com/howto/howto_css_smooth_scroll.asp
+            $("a").on('click', function (event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 600, 'easeInOutExpo', function () {
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+
+            // Pop up
+            $('.tm-gallery').magnificPopup({
+                delegate: 'a',
+                type: 'image',
+                gallery: {enabled: true}
+            });
+
+
+            // Gallery
+            $('.tm-gallery').slick({
+                dots: true,
+                infinite: false,
+                slidesToShow: 5,
+                slidesToScroll: 2,
+                responsive: [
+                    {
+                        breakpoint: 1199,
+                        settings: {
+                            slidesToShow: 4,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 991,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 767,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        });
+
+
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // 触发 id="defaultOpen" click 事件
+        document.getElementById("defaultOpen").click();
+        (function ($) {
+
+            "use strict";
+
+            // Header Type = Fixed
+            $(window).scroll(function() {
+                var scroll = $(window).scrollTop();
+                var box = $('.header-text').height();
+                var header = $('header').height();
+
+                if (scroll >= box - header) {
+                    $("header").addClass("background-header");
+                } else {
+                    $("header").removeClass("background-header");
+                }
+            });
+
+
+            // Acc
+            $(document).on("click", ".naccs .menu div", function() {
+                var numberIndex = $(this).index();
+
+                if (!$(this).is("active")) {
+                    $(".naccs .menu div").removeClass("active");
+                    $(".naccs ul li").removeClass("active");
+
+                    $(this).addClass("active");
+                    $(".naccs ul").find("li:eq(" + numberIndex + ")").addClass("active");
+
+                    var listItemHeight = $(".naccs ul")
+                        .find("li:eq(" + numberIndex + ")")
+                        .innerHeight();
+                    $(".naccs ul").height(listItemHeight + "px");
+                }
+            });
+
+            // Menu Dropdown Toggle
+            if($('.menu-trigger').length){
+                $(".menu-trigger").on('click', function() {
+                    $(this).toggleClass('active');
+                    $('.header-area .nav').slideToggle(200);
+                });
+            }
+
+            // Page loading animation
+            $(window).on('load', function() {
+
+                $('#js-preloader').addClass('loaded');
+
+            });
+
+        })(window.jQuery);
+    </script>
+</body>
+</html>

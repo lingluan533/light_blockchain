@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{template "thead" .}}
+    <title>数字保险箱</title>
+    <!--
+
+    -->
+    {{template "tlink" .}}
+    <script src="https://go-echarts.github.io/go-echarts-assets/assets/echarts.min.js"></script>
+
+</head>
+
+<body class="bg02">
+    <div class="container">
+        {{template "tmenu" .}}
+
+
+        <div class="row tm-content-row tm-mt-big">
+            <div class="col-xl-12 col-lg-12 tm-md-12 tm-sm-12 tm-col">
+                <div class="bg-white tm-block h-100">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-12">
+                            <h2 class="tm-block-title d-inline-block" onclick="
+                            loaddata()">区块链最近五分钟存证记录</h2>
+                            <input type="button" onclick="loaddata()" value="刷新数据">
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                    <table class="table table-hover table-striped tm-table-striped-even mt-3">
+                        <thead>
+                        <tr class="tm-bg-gray">
+                            <th scope="col">存证时间</th>
+                            <th scope="col">存证账本类型</th>
+                            <th scope="col" class="text-center">数据名称</th>
+                            <th scope="col" class="text-center">数据哈希</th>
+                            <th scope="col" class="text-center">区块高度</th>
+                            <th scope="col" class="text-center">操作类型</th>
+                            <th scope="col">操作人</th>
+                            <!--                                <th scope="col">&nbsp;</th>-->
+                        </tr>
+                        </thead>
+                        <tbody id="tbody">
+                        </tbody>
+                    </table>
+                </div>
+
+                    <div class="tm-table-mt tm-table-actions-row">
+                        <div class="tm-table-actions-col-right">
+                            <span class="tm-pagination-label">Page</span>
+                            <nav aria-label="Page navigation" class="d-inline-block">
+                                <ul class="pagination tm-pagination">
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <span class="tm-dots d-block">...</span>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">13</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">14</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row tm-content-row tm-mt-big">
+            <div class="col-xl-12 col-lg-12 tm-md-12 tm-sm-12 tm-col">
+                <div class="bg-white tm-block h-100">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-12">
+                            <h2 class="tm-block-title d-inline-block" onclick="
+                            loaddata1()">区块链最近五分钟交易记录</h2>
+                            <input type="button" onclick="loaddata1()" value="刷新数据">
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped tm-table-striped-even mt-3">
+                            <thead>
+                            <tr class="tm-bg-gray">
+                                <th scope="col">交易时间</th>
+                                <th scope="col">交易账本类型</th>
+                                <th scope="col" class="text-center">交易ID</th>
+                                <th scope="col" class="text-center">交易金额</th>
+                                <th scope="col" class="text-center">区块高度</th>
+                                <th scope="col" class="text-center">交易凭据</th>
+                                <th scope="col">备注</th>
+                                <!--                                <th scope="col">&nbsp;</th>-->
+                            </tr>
+                            </thead>
+                            <tbody id="tbody1">
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="tm-table-mt tm-table-actions-row">
+                        <div class="tm-table-actions-col-right">
+                            <span class="tm-pagination-label">Page</span>
+                            <nav aria-label="Page navigation" class="d-inline-block">
+                                <ul class="pagination tm-pagination">
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <span class="tm-dots d-block">...</span>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">13</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">14</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row tm-content-row tm-mt-big">
+            <div class="col-xl-12 col-lg-12 tm-md-12 tm-sm-12 tm-col">
+                <div class="bg-white tm-block h-100">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-12">
+                            <h2 class="tm-block-title d-inline-block">文件夹状态</h2>
+
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <div class="select" style="margin-right:10px; margin-top:10px; position:fixed; right:10px;"></div>
+
+                        <div class="container">
+                            <div class="item" id="uPLUOHYqCJMH"
+                                 style="width:900px;height:500px;"></div>
+                        </div>
+                        <script type="text/javascript">
+                            "use strict";
+                            var myChart_uPLUOHYqCJMH = echarts.init(document.getElementById('uPLUOHYqCJMH'), "white");
+                            var option_uPLUOHYqCJMH = {
+                                title: {"text":"文件夹",},
+                                tooltip: {},
+                                legend: {},
+                                xAxis: [{"data":["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],"splitArea":{"show":false,},"splitLine":{"show":false,}}],
+                                yAxis: [{"axisLabel":{"show":true},"splitArea":{"show":false,},"splitLine":{"show":false,}}],
+                                series: [
+                                    {"name":"Category A","type":"bar","data":[20,30,40,10,24,36,12],"label":{"show":false},"emphasis":{"label":{"show":false},},"markLine":{"label":{"show":false}},"markPoint":{"label":{"show":false}},},
+                                    {"name":"Category B","type":"bar","data":[36,14,25,60,44,23,11],"label":{"show":false},"emphasis":{"label":{"show":false},},"markLine":{"label":{"show":false}},"markPoint":{"label":{"show":false}},},
+                                ],
+                                color: ["#c23531","#2f4554","#61a0a8","#d48265","#91c7ae","#749f83","#ca8622","#bda29a","#6e7074","#546570","#c4ccd3"],
+                            };
+                            myChart_uPLUOHYqCJMH.setOption(option_uPLUOHYqCJMH);
+                        </script>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        {{template "tfooter" .}}
+
+    </div>
+
+    {{template "tjs" .}}
+    <script>
+        $(".navbar ui li a").removeClass("active");
+        $("#m_products").addClass("active");
+    </script>
+    <script>
+        function loaddata() {
+            //提交表单
+            $.ajax({
+                type: 'GET',
+                async: false,
+                url: 'blockchain/queryTimeReceipts',
+                success: function (data, status) {
+                    console.log(data);
+                    var htmlStr = "";
+                    var len = 20;
+                    if (data == null || data.length === 0){
+                        window.alert("获取最近五分钟区块链存证失败，或存证数为0!");
+                        return;
+                    }
+                    if(data.length < 20){
+                        len = data.length;
+                    }
+                    for(var i = 0;i < len;i++) {
+                        //获取一条员工信息
+                        var emp = data[i];
+                        var  o = JSON.parse(emp)
+
+                        htmlStr += "<tr>";
+                        htmlStr += "  <td className=\"tm-product-name\">" + o.createTimestamp + "</td>";
+                        htmlStr += " <td className=\"text-center\">" + o.serviceType + "</td>";
+                        htmlStr += " <td className=\"text-center\">" + o.fileName + "</td>";
+                        htmlStr += " <td className=\"text-center\">" + o.fileHash + "</td>";
+                        htmlStr += " <td className=\"text-center\">" + o.BlockHeight + "</td>";
+                        htmlStr += " <td className=\"text-center\">" + o.operationType + "</td>";
+                        htmlStr += " <td className=\"text-center\">" + o.userName + "</td>";
+                        htmlStr += "</tr>";
+
+                    }
+                    //将拼接的字符串放进tbody里
+                    $("#tbody").html(htmlStr);
+                }
+            })
+        }
+
+        function loaddata1() {
+            //提交表单
+            $.ajax({
+                type: 'GET',
+                async: false,
+                url: 'blockchain/queryTimeTransaction',
+                success: function (data, status) {
+                    var htmlStr = "";
+                    var len = 20;
+                    if(data.length < 20){
+                        len = data.length;
+                    }
+                    var curdata = data.data;
+                    console.log(curdata);
+                    if (curdata.length === 0){
+                        window.alert("获取最近五分钟区块链交易失败，或交易数为0!");
+                        return;
+                    }
+                    for(var i = 0;i < len;i++) {
+
+                        var emp = curdata[i];
+                        var  o = JSON.parse(emp)
+                        htmlStr += "<tr>";
+                        htmlStr += "  <td className=\"tm-product-name\">" + o.createTimestamp + "</td>";
+                        htmlStr += " <td className=\"text-center\">" + o.serviceType + "</td>";
+                        htmlStr += " <td className=\"text-center\">" + o.transactionId + "</td>";
+                        htmlStr += " <td className=\"text-center\">" + o.txAmount + "</td>";
+                        htmlStr += " <td className=\"text-center\">" + o.BlockHeight + "</td>";
+                        htmlStr += " <td className=\"text-center\">" + o.receipt + "</td>";
+                        htmlStr += " <td className=\"text-center\">" + o.remark + "</td>";
+                        htmlStr += "</tr>";
+                    }
+                    //将拼接的字符串放进tbody里
+                    $("#tbody1").html(htmlStr);
+                }
+            })
+        }
+    </script>
+
+
+</body>
+
+</html>
+

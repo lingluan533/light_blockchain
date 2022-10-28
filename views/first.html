@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{template "thead" .}}
+    <title>SCOPE | User init</title>
+    {{template "tlink" .}}
+
+</head>
+<body class="bg03">
+<div class="container">
+    <div class="row" style="margin-top: 100px;min-height: auto;">
+        <div class="col-md-10 m-auto" style="max-width: auto;min-height: auto;">
+            <div class="card card-outline card-primary">
+                <div class="card-header text-center">
+                    <a href="introduct.html" class="h1"><b>数字</b>保险箱:<h6>{{.HostName}}</h6></a>
+                </div>
+                <div class="card-header text-center" style="border-bottom: none">
+                    <div class="col-md-4 m-auto">
+                        <h2 class="d-inline-block" style="font-weight: inherit; margin-top: 30px">初始化设备</h2>
+                    </div>
+                </div>
+                <form name="new" action="first_new" method="post" class="tm-edit-product-form">
+                <div class="row mt-4 ">
+                    <div class=" col-xl-10 col-lg-10 col-md-12">
+
+                        <div class="bg-white tm-block " style="padding-left: 12.5%; padding-right: 12.5%; padding-top: 0px;padding-bottom: 10px">
+                            <div class=" mt-4  bg-white h-100" >
+                                <h2 class="tm-block-title">设备信息</h2>
+                                <div class=" col-md-12">
+
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <label for="hostname" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 mb-2">主机名：</label>
+                                            <!--                                   // <textarea  id="nice" name="nice"  class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7" rows="2"></textarea>-->
+                                            <input  id="hostname" name="hostname" type="text" value={{.HostName}}  readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <label for="ip" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">用户子网ip：
+                                            </label>
+                                            <input  id="ip" name="ip" type="text" value="192.168.216.205"  readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7">
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-xl-6 col-lg-6 col-md-12">
+
+                        <div class="bg-white tm-block " style="padding-left: 12.5%; padding-right: 12.5%; padding-top: 0px;padding-bottom: 10px">
+                            <div class=" mt-4  bg-white h-100" >
+                                <h2 class="tm-block-title">用户信息</h2>
+                                <div class=" col-md-12">
+<!--                                    <form name="new" action="first_new" method="post" class="tm-edit-product-form">-->
+                                        <!--   user_root id "1" name "root" nice "root" phone "13101234567" email "root@bupt.edu.cn" password "password" avatar "img/profile-image.png" active "true"-->
+                                        <input type="hidden" class="form-control" name="avatar" id="avatar" value="upload/profile-image.png">
+                                        <div class="form-group">
+                                            <div class="input-group mb-3">
+                                                <label for="user" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">用户名称：
+                                                </label>
+                                                <input  id="user" name="user" type="text" value="root"  readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7">
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group mb-3">
+                                                <label for="nice" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 mb-2">用户昵称：</label>
+                                                <!--                                   // <textarea  id="nice" name="nice"  class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7" rows="2"></textarea>-->
+                                                <input  id="nice" name="nice" type="text" value="root"  readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="input-group mb-3">
+                                                <label for="pass0" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">密码：</label>
+                                                <input id="pass0" name="pass0" type="text" value="password"  readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7" placeholder="******">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="input-group mb-3">
+                                                <label for="phone" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">手机号码：</label>
+                                                <input placeholder="13912345678" id="phone" name="phone" type="phone" value="13101234567" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group mb-3">
+                                                <label for="email" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">邮箱名称：</label>
+                                                <input placeholder="new@bupt.edu.cn" id="email" name="email" type="email" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7" >
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-xl-6 col-lg-6 col-md-12">
+                        <div class="bg-white tm-block" style="padding-left: 12.5%; padding-right: 12.5%; padding-top: 0px; padding-bottom: 10px">
+                            <div class=" mt-4  bg-white h-100" >
+                                <h2 class="tm-block-title">缓存配置</h2>
+                                <div class=" col-md-12">
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <label for="redis" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">缓存地址：
+                                            </label>
+                                            <input  id="redis" name="redis" type="text" value="127.0.0.1"  readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <label for="redis_port" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">缓存端口号：
+                                            </label>
+                                            <input  id="redis_port" name="redis_port" type="text" value="6379"  readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <label for="redis_network" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">缓存网络：
+                                            </label>
+                                            <input  id="redis_network" name="redis_network" type="text" value="tcp"  readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <label for="redis_password" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">缓存密码：
+                                            </label>
+                                            <input  id="redis_password" name="redis_password" type="text" value=""  readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <label for="redis_pools" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">缓存池：
+                                            </label>
+                                            <input  id="redis_pools" name="redis_pools" type="text" value="16"  readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-12">
+                        <div class="bg-white tm-block" style="padding-left: 12.5%; padding-right: 12.5%; padding-top: 0px; padding-bottom: 10px">
+                            <div class=" mt-4  bg-white h-100" >
+                                <h2 class="tm-block-title">邮件服务器配置</h2>
+                                <div class=" col-md-12">
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <label for="email_vendor" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">邮件服务器厂商：
+                                            </label>
+                                            <input  id="email_vendor" name="email_host" type="text" value="bupt"  readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7">
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <label for="email_host" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">邮件服务器地址：
+                                            </label>
+                                            <input  id="email_host" name="email_host" type="text" value="smtp.bupt.edu.cn"  readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7">
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <label for="email_prot" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 mb-2">邮件端口：</label>
+                                            <input  id="email_prot" name="email_prot" type="text" value="465"  readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <label for="sender" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 mb-2">发送方邮箱：</label>
+                                            <input  id="sender" name="sender" type="text" value="roottest@bupt.edu.cn"  readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <label for="email_password" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 mb-2">邮箱密码：</label>
+                                            <input  id="email_password" name="email_password" type="text" value="roottest"  readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <label for="email_nice" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 mb-2">邮箱昵称：</label>
+                                            <input  id="email_nice" name="email_nice" type="text" value="root"  readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <label for="email_cc" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 mb-2">用户邮箱：</label>
+                                            <input  id="email_cc" name="email_cc" type="text" value="handaqi@bupt.edu.com.cn"  readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-12">
+                        <div class="bg-white tm-block" style="padding-left: 12.5%; padding-right: 12.5%; padding-top: 0px; padding-bottom: 0px">
+                            <div class=" mt-4  bg-white h-100" >
+                                <h2 class="tm-block-title">短信服务器配置</h2>
+                                <div class=" col-md-12">
+
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <label for="message_vendor" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">短信服务区厂商：</label>
+                                            <input id="message_vendor" name="message_vendor" type="text" value="easemob" readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <label for="token_url" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">短信token地址：</label>
+                                            <input id="token_url" name="token_url" type="text" value="http://a1.easemob.com/1113211109110751/scope/token"  readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7" placeholder="******">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <label for="client_id" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">客户端id：</label>
+                                            <input id="client_id" name="client_id" type="text" value="YXA6GfgasKrsSKSfCIVa7SSLNg" readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <label for="client_secret" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">客户端密码：</label>
+                                            <input id="client_secret" name="client_secret" type="text" value="YXA6NnCMnQL8d4GtSnLVggcwx8P8HG8" readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <label for="message_retry" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">短信重发次数：</label>
+                                            <input id="message_retry" name="message_retry" type="text" value="86400" readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <label for="message_token" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">短信token：</label>
+                                            <input id="message_token" name="message_token" type="text" value="" readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <label for="send_url" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">发送方地址：</label>
+                                            <input id="send_url" name="send_url" type="text" value="http://a1.easemob.com/1113211109110751/scope/sms/send" readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <label for="message_tid" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">短信线程数：</label>
+                                            <input id="message_tid" name="message_tid" type="text" value="802" readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <label for="message_expires" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">短信过期时间：</label>
+                                            <input id="message_expires" name="message_expires" type="text" value="120" readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <label for="hash" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">用户hash：
+                                            </label>
+                                            <input  id="hash" name="hash" type="text" value="12345678987654321"  readonly="readonly" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7">
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </form>
+                <!-- row -->
+                <div class="card-header text-center" style="border-bottom: none">
+                    <div class="col-md-6 m-auto">
+                        <button type="button" class="btn btn-danger" style="padding: 5px 30px" onclick="btnSubmit('first_new','new')">保存并提交
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.card -->
+
+
+        </div>
+    </div>
+
+    {{template "tfooter" .}}
+
+</div>
+
+{{template "tjs" .}}
+
+
+<script>
+    $(".navbar ui li a").removeClass("active");
+    $("#m_accounts").addClass("active");
+
+    $(function() {
+        $("form[name='new']").validate({
+            rules: {
+                user: {
+                    required: true,
+                    minlength: 3,
+                },
+                nice: {
+                    required: true,
+                    minlength: 3
+                },
+                phone: {
+                    required: true,
+                    minlength: 11
+                },
+                email: {
+                    //required: true,
+                    email: true
+                },
+                pass0: {
+                    required: true,
+                    minlength: 3,
+                },
+
+            },
+            messages: {
+                user: {
+                    required: "请输入用户名称",
+                    minlength: "用户名称不能小于3个字母",
+                    remote: "输入的用户名已经存在"
+                },
+                nice: {
+                    required: "请输入用户昵称",
+                    minlength: "用户昵称不能小于3个字母"
+                },
+                phone: {
+                    required: "请输入手机号",
+                    minlength: "手机号不能小于11个数字"
+                },
+                email: {
+                    //required: "请输入邮箱名",
+                    email: "请输入有效邮箱名xx@yy.edu.cn"
+                },
+                pass0: {
+                    required: "请输入初始密码",
+                    minlength: "密码长度不能小于3个字母"
+                },
+
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback ml-auto col-xl-8 col-lg-8 col-md-8 col-sm-7 pl-0');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            }
+
+        });
+    });
+    function btnSubmit(url,id) {
+        var flag = $("form[name='" + id + "']").valid();
+        if(!flag){
+            //没有通过验证
+            return;
+        }
+        // var form = new FormData(document.getElementById("tf"));
+        //提交表单
+        $.ajax({
+            type: 'POST',
+            async: false,
+            url: url,
+            data: $("form[name='" + id + "']").serialize(),
+            //  data: form
+            success: function (data, status) {
+                if (data.code == "00000") {
+                    toastr.success('增加新用户:' + $("input[name='user']").val() + data.msg )
+
+                    if( data.url.length > 0 )
+                        setTimeout( "window.location.href='"+data.url+"';", 1500 )
+                } else {
+                    toastr.info('处理失败:' + JSON.stringify(data) )
+                }
+            }
+        })
+        //可以阻止默认form提交事件event.preventDefault()
+    }
+
+</script>
+
+</body>
+</html>
