@@ -9,6 +9,8 @@ import (
 
 type IndexController interface {
 	Index(c echo.Context) error
+	ShowStatus(c echo.Context) error
+	ShowBlockStatus(c echo.Context) error
 }
 
 type indexController struct {
@@ -19,7 +21,12 @@ type indexController struct {
 func (i indexController) Index(c echo.Context) error {
 	return c.Render(http.StatusOK, "index.html", nil)
 }
-
+func (i indexController) ShowStatus(c echo.Context) error {
+	return c.Render(http.StatusOK, "status.html", nil)
+}
+func (i indexController) ShowBlockStatus(c echo.Context) error {
+	return c.Render(http.StatusOK, "blockstatus.html", nil)
+}
 func NewIndexController(container container.Container) IndexController {
 	return &indexController{
 		container: container,

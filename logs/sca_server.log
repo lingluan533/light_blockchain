@@ -6610,3 +6610,116 @@ https://echo.labstack.com
 ____________________________________O/_______
                                     O\
 ⇨ http server started on [::]:8000
+
+   ____    __
+  / __/___/ /  ___
+ / _// __/ _ \/ _ \
+/___/\__/_//_/\___/ v4.9.0
+High performance, minimalist Go web framework
+https://echo.labstack.com
+____________________________________O/_______
+                                    O\
+⇨ http server started on [::]:8000
+time=2022-10-28T20:20:40+08:00, remote_ip=127.0.0.1, method=GET, uri=/, status=200 latency=536300, bytes_in=0,bytes_out=9284
+time=2022-10-28T20:20:41+08:00, remote_ip=127.0.0.1, method=GET, uri=/css/tooplate.css, status=200 latency=318085900, bytes_in=0,bytes_out=7363
+time=2022-10-28T20:20:41+08:00, remote_ip=127.0.0.1, method=GET, uri=/css/fullcalendar.min.css, status=200 latency=332480100, bytes_in=0,bytes_out=16066
+time=2022-10-28T20:20:41+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/moment.min.js, status=200 latency=317524600, bytes_in=0,bytes_out=51679
+time=2022-10-28T20:20:41+08:00, remote_ip=127.0.0.1, method=GET, uri=/css/fontawesome.min.css, status=200 latency=337124900, bytes_in=0,bytes_out=46930
+time=2022-10-28T20:20:41+08:00, remote_ip=127.0.0.1, method=GET, uri=/css/bootstrap.min.css, status=200 latency=328103400, bytes_in=0,bytes_out=140936
+time=2022-10-28T20:20:41+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/jquery-3.3.1.min.js, status=200 latency=318055400, bytes_in=0,bytes_out=86926
+time=2022-10-28T20:20:41+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/utils.js, status=200 latency=266700, bytes_in=0,bytes_out=3772
+time=2022-10-28T20:20:41+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/Chart.min.js, status=200 latency=531200, bytes_in=0,bytes_out=159638
+time=2022-10-28T20:20:41+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/bootstrap.min.js, status=200 latency=531200, bytes_in=0,bytes_out=51039
+time=2022-10-28T20:20:41+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/fullcalendar.min.js, status=200 latency=1058500, bytes_in=0,bytes_out=213774
+time=2022-10-28T20:20:41+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/tooplate-scripts.js, status=200 latency=81100, bytes_in=0,bytes_out=5178
+time=2022-10-28T20:20:41+08:00, remote_ip=127.0.0.1, method=GET, uri=/img/dash-bg-01.jpg, status=200 latency=944600, bytes_in=0,bytes_out=219124
+time=2022-10-28T20:20:41+08:00, remote_ip=127.0.0.1, method=GET, uri=/webfonts/fa-solid-900.woff2, status=200 latency=919900, bytes_in=0,bytes_out=62472
+time=2022-10-28T20:20:41+08:00, remote_ip=127.0.0.1, method=GET, uri=/webfonts/fa-regular-400.woff2, status=200 latency=1004100, bytes_in=0,bytes_out=14888
+time=2022-10-28T20:20:41+08:00, remote_ip=127.0.0.1, method=GET, uri=/css/bootstrap.min.css.map, status=500 latency=0, bytes_in=0,bytes_out=36
+time=2022-10-28T20:20:41+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/bootstrap.min.js.map, status=500 latency=308900, bytes_in=0,bytes_out=36
+time=2022-10-28T20:20:43+08:00, remote_ip=127.0.0.1, method=GET, uri=/, status=200 latency=914300, bytes_in=0,bytes_out=9284
+time=2022-10-28T20:20:43+08:00, remote_ip=127.0.0.1, method=GET, uri=/css/fontawesome.min.css, status=200 latency=1368300, bytes_in=0,bytes_out=46930
+time=2022-10-28T20:20:43+08:00, remote_ip=127.0.0.1, method=GET, uri=/css/fullcalendar.min.css, status=200 latency=464100, bytes_in=0,bytes_out=16066
+time=2022-10-28T20:20:43+08:00, remote_ip=127.0.0.1, method=GET, uri=/css/bootstrap.min.css, status=200 latency=464900, bytes_in=0,bytes_out=140936
+time=2022-10-28T20:20:43+08:00, remote_ip=127.0.0.1, method=GET, uri=/css/tooplate.css, status=200 latency=0, bytes_in=0,bytes_out=7363
+time=2022-10-28T20:20:43+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/jquery-3.3.1.min.js, status=200 latency=546400, bytes_in=0,bytes_out=86926
+time=2022-10-28T20:20:43+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/moment.min.js, status=200 latency=546400, bytes_in=0,bytes_out=51679
+time=2022-10-28T20:20:43+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/utils.js, status=200 latency=596300, bytes_in=0,bytes_out=3772
+time=2022-10-28T20:20:43+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/Chart.min.js, status=200 latency=558200, bytes_in=0,bytes_out=159638
+time=2022-10-28T20:20:43+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/fullcalendar.min.js, status=200 latency=908700, bytes_in=0,bytes_out=213774
+time=2022-10-28T20:20:43+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/tooplate-scripts.js, status=200 latency=663300, bytes_in=0,bytes_out=5178
+time=2022-10-28T20:20:43+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/bootstrap.min.js, status=200 latency=1258600, bytes_in=0,bytes_out=51039
+time=2022-10-28T20:20:43+08:00, remote_ip=127.0.0.1, method=GET, uri=/img/dash-bg-01.jpg, status=200 latency=777200, bytes_in=0,bytes_out=219124
+time=2022-10-28T20:20:43+08:00, remote_ip=127.0.0.1, method=GET, uri=/webfonts/fa-solid-900.woff2, status=200 latency=903000, bytes_in=0,bytes_out=62472
+time=2022-10-28T20:20:43+08:00, remote_ip=127.0.0.1, method=GET, uri=/webfonts/fa-regular-400.woff2, status=200 latency=306800, bytes_in=0,bytes_out=14888
+time=2022-10-28T20:20:43+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/bootstrap.min.js.map, status=500 latency=862800, bytes_in=0,bytes_out=36
+time=2022-10-28T20:20:43+08:00, remote_ip=127.0.0.1, method=GET, uri=/css/bootstrap.min.css.map, status=500 latency=269600, bytes_in=0,bytes_out=36
+time=2022-10-28T20:20:44+08:00, remote_ip=127.0.0.1, method=GET, uri=/, status=200 latency=1467900, bytes_in=0,bytes_out=9284
+time=2022-10-28T20:20:44+08:00, remote_ip=127.0.0.1, method=GET, uri=/css/fontawesome.min.css, status=200 latency=1676100, bytes_in=0,bytes_out=46930
+time=2022-10-28T20:20:44+08:00, remote_ip=127.0.0.1, method=GET, uri=/css/fullcalendar.min.css, status=200 latency=0, bytes_in=0,bytes_out=16066
+time=2022-10-28T20:20:44+08:00, remote_ip=127.0.0.1, method=GET, uri=/css/bootstrap.min.css, status=200 latency=1755500, bytes_in=0,bytes_out=140936
+time=2022-10-28T20:20:44+08:00, remote_ip=127.0.0.1, method=GET, uri=/css/tooplate.css, status=200 latency=0, bytes_in=0,bytes_out=7363
+time=2022-10-28T20:20:44+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/jquery-3.3.1.min.js, status=200 latency=554700, bytes_in=0,bytes_out=86926
+time=2022-10-28T20:20:44+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/moment.min.js, status=200 latency=585900, bytes_in=0,bytes_out=51679
+time=2022-10-28T20:20:44+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/utils.js, status=200 latency=1003800, bytes_in=0,bytes_out=3772
+time=2022-10-28T20:20:44+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/Chart.min.js, status=200 latency=627500, bytes_in=0,bytes_out=159638
+time=2022-10-28T20:20:44+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/bootstrap.min.js, status=200 latency=0, bytes_in=0,bytes_out=51039
+time=2022-10-28T20:20:44+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/fullcalendar.min.js, status=200 latency=1414500, bytes_in=0,bytes_out=213774
+time=2022-10-28T20:20:44+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/tooplate-scripts.js, status=200 latency=0, bytes_in=0,bytes_out=5178
+time=2022-10-28T20:20:44+08:00, remote_ip=127.0.0.1, method=GET, uri=/img/dash-bg-01.jpg, status=200 latency=633200, bytes_in=0,bytes_out=219124
+time=2022-10-28T20:20:44+08:00, remote_ip=127.0.0.1, method=GET, uri=/webfonts/fa-solid-900.woff2, status=200 latency=2169600, bytes_in=0,bytes_out=62472
+time=2022-10-28T20:20:44+08:00, remote_ip=127.0.0.1, method=GET, uri=/webfonts/fa-regular-400.woff2, status=200 latency=538800, bytes_in=0,bytes_out=14888
+time=2022-10-28T20:20:44+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/bootstrap.min.js.map, status=500 latency=259600, bytes_in=0,bytes_out=36
+time=2022-10-28T20:20:44+08:00, remote_ip=127.0.0.1, method=GET, uri=/css/bootstrap.min.css.map, status=500 latency=565200, bytes_in=0,bytes_out=36
+time=2022-10-28T20:20:48+08:00, remote_ip=127.0.0.1, method=GET, uri=/, status=200 latency=486500, bytes_in=0,bytes_out=9284
+time=2022-10-28T20:20:48+08:00, remote_ip=127.0.0.1, method=GET, uri=/css/fontawesome.min.css, status=200 latency=864300, bytes_in=0,bytes_out=46930
+time=2022-10-28T20:20:48+08:00, remote_ip=127.0.0.1, method=GET, uri=/css/fullcalendar.min.css, status=200 latency=547700, bytes_in=0,bytes_out=16066
+time=2022-10-28T20:20:48+08:00, remote_ip=127.0.0.1, method=GET, uri=/css/tooplate.css, status=200 latency=0, bytes_in=0,bytes_out=7363
+time=2022-10-28T20:20:48+08:00, remote_ip=127.0.0.1, method=GET, uri=/css/bootstrap.min.css, status=200 latency=526900, bytes_in=0,bytes_out=140936
+time=2022-10-28T20:20:48+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/jquery-3.3.1.min.js, status=200 latency=35300, bytes_in=0,bytes_out=86926
+time=2022-10-28T20:20:48+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/moment.min.js, status=200 latency=0, bytes_in=0,bytes_out=51679
+time=2022-10-28T20:20:48+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/utils.js, status=200 latency=289300, bytes_in=0,bytes_out=3772
+time=2022-10-28T20:20:48+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/Chart.min.js, status=200 latency=534500, bytes_in=0,bytes_out=159638
+time=2022-10-28T20:20:48+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/fullcalendar.min.js, status=200 latency=605200, bytes_in=0,bytes_out=213774
+time=2022-10-28T20:20:48+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/bootstrap.min.js, status=200 latency=405800, bytes_in=0,bytes_out=51039
+time=2022-10-28T20:20:48+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/tooplate-scripts.js, status=200 latency=0, bytes_in=0,bytes_out=5178
+time=2022-10-28T20:20:48+08:00, remote_ip=127.0.0.1, method=GET, uri=/img/dash-bg-01.jpg, status=200 latency=1495800, bytes_in=0,bytes_out=219124
+time=2022-10-28T20:20:48+08:00, remote_ip=127.0.0.1, method=GET, uri=/webfonts/fa-solid-900.woff2, status=200 latency=0, bytes_in=0,bytes_out=62472
+time=2022-10-28T20:20:48+08:00, remote_ip=127.0.0.1, method=GET, uri=/webfonts/fa-regular-400.woff2, status=200 latency=460400, bytes_in=0,bytes_out=14888
+time=2022-10-28T20:20:48+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/bootstrap.min.js.map, status=500 latency=385700, bytes_in=0,bytes_out=36
+time=2022-10-28T20:20:48+08:00, remote_ip=127.0.0.1, method=GET, uri=/css/bootstrap.min.css.map, status=500 latency=0, bytes_in=0,bytes_out=36
+time=2022-10-28T20:20:51+08:00, remote_ip=127.0.0.1, method=GET, uri=/status.html, status=500 latency=942700, bytes_in=0,bytes_out=36
+time=2022-10-28T20:20:58+08:00, remote_ip=127.0.0.1, method=GET, uri=/, status=200 latency=491200, bytes_in=0,bytes_out=9284
+time=2022-10-28T20:20:58+08:00, remote_ip=127.0.0.1, method=GET, uri=/css/fontawesome.min.css, status=200 latency=519900, bytes_in=0,bytes_out=46930
+time=2022-10-28T20:20:58+08:00, remote_ip=127.0.0.1, method=GET, uri=/css/fullcalendar.min.css, status=200 latency=552600, bytes_in=0,bytes_out=16066
+time=2022-10-28T20:20:58+08:00, remote_ip=127.0.0.1, method=GET, uri=/css/bootstrap.min.css, status=200 latency=458900, bytes_in=0,bytes_out=140936
+time=2022-10-28T20:20:58+08:00, remote_ip=127.0.0.1, method=GET, uri=/css/tooplate.css, status=200 latency=613600, bytes_in=0,bytes_out=7363
+time=2022-10-28T20:20:58+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/jquery-3.3.1.min.js, status=200 latency=732600, bytes_in=0,bytes_out=86926
+time=2022-10-28T20:20:58+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/moment.min.js, status=200 latency=61800, bytes_in=0,bytes_out=51679
+time=2022-10-28T20:20:58+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/utils.js, status=200 latency=405300, bytes_in=0,bytes_out=3772
+time=2022-10-28T20:20:58+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/Chart.min.js, status=200 latency=531800, bytes_in=0,bytes_out=159638
+time=2022-10-28T20:20:58+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/fullcalendar.min.js, status=200 latency=2410200, bytes_in=0,bytes_out=213774
+time=2022-10-28T20:20:58+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/tooplate-scripts.js, status=200 latency=161900, bytes_in=0,bytes_out=5178
+time=2022-10-28T20:20:58+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/bootstrap.min.js, status=200 latency=666700, bytes_in=0,bytes_out=51039
+time=2022-10-28T20:20:58+08:00, remote_ip=127.0.0.1, method=GET, uri=/img/dash-bg-01.jpg, status=200 latency=1491200, bytes_in=0,bytes_out=219124
+time=2022-10-28T20:20:58+08:00, remote_ip=127.0.0.1, method=GET, uri=/webfonts/fa-solid-900.woff2, status=200 latency=683000, bytes_in=0,bytes_out=62472
+time=2022-10-28T20:20:58+08:00, remote_ip=127.0.0.1, method=GET, uri=/webfonts/fa-regular-400.woff2, status=200 latency=537500, bytes_in=0,bytes_out=14888
+time=2022-10-28T20:20:58+08:00, remote_ip=127.0.0.1, method=GET, uri=/js/bootstrap.min.js.map, status=500 latency=73700, bytes_in=0,bytes_out=36
+time=2022-10-28T20:20:58+08:00, remote_ip=127.0.0.1, method=GET, uri=/css/bootstrap.min.css.map, status=500 latency=331100, bytes_in=0,bytes_out=36
+time=2022-10-28T20:20:59+08:00, remote_ip=127.0.0.1, method=GET, uri=/blockstatus.html, status=500 latency=699800, bytes_in=0,bytes_out=36
+
+   ____    __
+  / __/___/ /  ___
+ / _// __/ _ \/ _ \
+/___/\__/_//_/\___/ v4.9.0
+High performance, minimalist Go web framework
+https://echo.labstack.com
+____________________________________O/_______
+                                    O\
+⇨ http server started on [::]:8000
+time=2022-10-28T20:27:30+08:00, remote_ip=127.0.0.1, method=GET, uri=/blockstatus.html, status=500 latency=0, bytes_in=0,bytes_out=36
+time=2022-10-28T20:27:33+08:00, remote_ip=127.0.0.1, method=GET, uri=/blockstatus.html, status=500 latency=620900, bytes_in=0,bytes_out=36
+time=2022-10-28T20:27:34+08:00, remote_ip=127.0.0.1, method=GET, uri=/blockstatus.html, status=500 latency=0, bytes_in=0,bytes_out=36
+time=2022-10-28T20:27:35+08:00, remote_ip=127.0.0.1, method=GET, uri=/blockstatus.html, status=500 latency=368400, bytes_in=0,bytes_out=36
+time=2022-10-28T20:27:35+08:00, remote_ip=127.0.0.1, method=GET, uri=/blockstatus.html, status=500 latency=551400, bytes_in=0,bytes_out=36
+time=2022-10-28T20:27:36+08:00, remote_ip=127.0.0.1, method=GET, uri=/blockstatus.html, status=500 latency=515100, bytes_in=0,bytes_out=36

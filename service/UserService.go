@@ -1,17 +1,60 @@
 package service
 
-import "sca_server/container"
+import (
+	"encoding/json"
+	"errors"
+	"fmt"
+	"io/ioutil"
+	"net/http"
+	"net/url"
+	"sca_server/consul"
+	"sca_server/container"
+
+	"strconv"
+)
 
 type UserService interface {
-	LoginMethod()
+	LoginMethod(user string, password string) (bool, error)
 }
 
 type userService struct {
 	container container.Container
 }
 
-func (u userService) LoginMethod() {
-	panic("implement me")
+func (u userService) LoginMethod(user string, password string) (bool, error) {
+
+	logger := u.container.GetLogger()
+	// get a avaliable server
+	service, err := consul.GetOneOnlineAddress(u.container.GetConfig())
+	//logger.GetZapLogger().Errorf(" QueryTimeReceiptsMethod No Avaliable EdgeNode! %v", u.container.GetConfig().Consul)
+	if service == nil {
+		logger.GetZapLogger().Errorf("No Avaliable EdgeNode!")
+		return false, errors.New("No Avaliable EdgeNode!")
+	}
+	if err != nil {
+		logger.GetZapLogger().Errorf("Error on request Avaliable EdgeNode: %v\n", err)
+		return false, errors.New("Error on request Avaliable EdgeNode")
+	}
+	resp, err := http.PostForm("http://"+service.Address+":"+strconv.Itoa(service.Port)+"/login", url.Values{"user": {user}, "password": {password}})
+
+	if err != nil {
+		logger.GetZapLogger().Errorf("Error on request: %v\n", err)
+		return false, errors.New("Unmarshalerr error")
+	}
+	defer resp.Body.Close()
+	u.container.GetLogger().GetZapLogger().Info(resp)
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Printf("Error reading response body: %v\n", err)
+		return false, errors.New("Unmarshalerr error")
+	}
+
+	var config []map[string]interface{}
+
+	err = json.Unmarshal([]byte(body), &config)
+	//fmt.Println(config)
+	//fmt.Println(len(config))
+	return true, nil
 }
 
 // NewUserService is constructor.

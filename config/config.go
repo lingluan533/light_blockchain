@@ -57,6 +57,23 @@ type Swagger struct {
 	Path    string `yaml:"path"`
 }
 
+type ConsulConfig struct {
+	ConsulAddress    string `yaml:"consul_address"`
+	ConsulPort       string `yaml:"consul_port"`
+	ID               string `yaml:"ID"`
+	Name             string `yaml:"Name"`
+	LocalAddress     string `yaml:"LocalAddress"`
+	LocalServicePort int    `yaml:"LocalServicePort"`
+	HealthCheckID    string `yaml:"HealthCheckID"`
+	HealthTCP        string `yaml:"HealthTCP"`
+	HealthTimeout    string `yaml:"HealthTimeout"`
+	HealthInterval   string `yaml:"HealthInterval"`
+}
+
+type LogConfig struct {
+	RequestLogFormat string `yaml:"request_log_format" default:"${remote_ip} ${account_name} ${uri} ${method} ${status}"`
+}
+
 type Config struct {
 	MySql     MysqlConfig   `yaml:mysql`
 	Redis     RedisConfig   `yaml:"redis"`
@@ -64,6 +81,8 @@ type Config struct {
 	Message   MessageConfig `yaml:"message"`
 	Extension Extension     `yaml:"extension"`
 	Swagger   Swagger       `yaml:"swagger"`
+	Consul    ConsulConfig  `yaml:"ConsulConfig"`
+	LogConfig LogConfig     `yaml:"LogConfig"`
 }
 
 const (

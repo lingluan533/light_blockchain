@@ -218,18 +218,17 @@
                 success: function (data, status) {
                     var htmlStr = "";
                     var len = 20;
-                    if(data.length < 20){
-                        len = data.length;
-                    }
-                    var curdata = data.data;
-                    console.log(curdata);
-                    if (curdata.length === 0){
+                    if (data == null || data.length === 0){
                         window.alert("获取最近五分钟区块链交易失败，或交易数为0!");
                         return;
                     }
+                    if(data.length < 20){
+                        len = data.length;
+                    }
+
                     for(var i = 0;i < len;i++) {
 
-                        var emp = curdata[i];
+                        var emp = data[i];
                         var  o = JSON.parse(emp)
                         htmlStr += "<tr>";
                         htmlStr += "  <td className=\"tm-product-name\">" + o.createTimestamp + "</td>";
