@@ -2,6 +2,9 @@ package middleware
 
 import (
 	"embed"
+	"github.com/valyala/fasttemplate"
+	"io"
+	"strconv"
 
 	"net/http"
 	"regexp"
@@ -12,10 +15,10 @@ import (
 )
 
 // InitLoggerMiddleware initialize a middleware for logger.
-//func InitLoggerMiddleware(e *echo.Echo, container container.Container) {
-//	e.Use(RequestLoggerMiddleware(container))
-//	e.Use(ActionLoggerMiddleware(container))
-//}
+func InitLoggerMiddleware(e *echo.Echo, container container.Container) {
+	e.Use(RequestLoggerMiddleware(container))
+	e.Use(ActionLoggerMiddleware(container))
+}
 
 // InitSessionMiddleware initialize a middleware for session management.
 //func InitSessionMiddleware(e *echo.Echo, container container.Container) {
@@ -42,56 +45,51 @@ import (
 //}
 
 // RequestLoggerMiddleware is middleware for logging the contents of requests.
-//func RequestLoggerMiddleware(container container.Container) echo.MiddlewareFunc {
-//	return func(next echo.HandlerFunc) echo.HandlerFunc {
-//		return func(c echo.Context) error {
-//			req := c.Request()
-//			res := c.Response()
-//			if err := next(c); err != nil {
-//				c.Error(err)
-//			}
-//
-//			template := fasttemplate.New(container.GetConfig().Log.RequestLogFormat, "${", "}")
-//			logstr := template.ExecuteFuncString(func(w io.Writer, tag string) (int, error) {
-//				switch tag {
-//				case "remote_ip":
-//					return w.Write([]byte(c.RealIP()))
-//				case "account_name":
-//					if account := container.GetSession().GetAccount(); account != nil {
-//						return w.Write([]byte(account.Name))
-//					}
-//					return w.Write([]byte("None"))
-//				case "uri":
-//					return w.Write([]byte(req.RequestURI))
-//				case "method":
-//					return w.Write([]byte(req.Method))
-//				case "status":
-//					return w.Write([]byte(strconv.Itoa(res.Status)))
-//				default:
-//					return w.Write([]byte(""))
-//				}
-//			})
-//			container.GetLogger().GetZapLogger().Infof(logstr)
-//			return nil
-//		}
-//	}
-//}
+func RequestLoggerMiddleware(container container.Container) echo.MiddlewareFunc {
+	return func(next echo.HandlerFunc) echo.HandlerFunc {
+		return func(c echo.Context) error {
+			req := c.Request()
+			res := c.Response()
+			if err := next(c); err != nil {
+				c.Error(err)
+			}
+
+			template := fasttemplate.New(container.GetConfig().LogConfig.RequestLogFormat, "${", "}")
+			logstr := template.ExecuteFuncString(func(w io.Writer, tag string) (int, error) {
+				switch tag {
+				case "remote_ip":
+					return w.Write([]byte(c.RealIP()))
+				case "uri":
+					return w.Write([]byte(req.RequestURI))
+				case "method":
+					return w.Write([]byte(req.Method))
+				case "status":
+					return w.Write([]byte(strconv.Itoa(res.Status)))
+				default:
+					return w.Write([]byte(""))
+				}
+			})
+			container.GetLogger().GetZapLogger().Infof(logstr)
+			return nil
+		}
+	}
+}
 
 // ActionLoggerMiddleware is middleware for logging the start and end of controller processes.
 // ref: https://echo.labstack.com/cookbook/middleware
-//func ActionLoggerMiddleware(container container.Container) echo.MiddlewareFunc {
-//	return func(next echo.HandlerFunc) echo.HandlerFunc {
-//		return func(c echo.Context) error {
-//			logger := container.GetLogger()
-//			logger.GetZapLogger().Debugf(c.Path() + " Action Start")
-//			if err := next(c); err != nil {
-//				c.Error(err)
-//			}
-//			logger.GetZapLogger().Debugf(c.Path() + " Action End")
-//			return nil
-//		}
-//	}
-//}
+func ActionLoggerMiddleware(container container.Container) echo.MiddlewareFunc {
+	return func(next echo.HandlerFunc) echo.HandlerFunc {
+		return func(c echo.Context) error {
+			logger := container.GetLogger()
+			logger.GetZapLogger().Debugf(c.Path() + " Action Start")
+			if err := next(c); err != nil {
+				c.Error(err)
+			}
+			logger.GetZapLogger().Debugf(c.Path() + " Action End")
+			return nil
+		}
+	}
+}
 
 // SessionMiddleware is a middleware for setting a context to a session.
 func SessionMiddleware(container container.Container) echo.MiddlewareFunc {

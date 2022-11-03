@@ -7,13 +7,8 @@ package main
 
 import (
 	"embed"
-	"fmt"
-	"github.com/labstack/echo/v4/middleware"
-	echolog "github.com/labstack/gommon/log"
 	"html/template"
 	"io"
-	"log"
-	"net/http"
 	_ "net/http"
 	"os"
 	"path/filepath"
@@ -44,17 +39,17 @@ func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Con
 	return t.templates.ExecuteTemplate(w, name, data)
 }
 
-func customHTTPErrorHandler(err error, c echo.Context) {
-	code := http.StatusInternalServerError
-	fmt.Println(err)
-	eLogger.Error(err)
-	if he, ok := err.(*echo.HTTPError); ok {
-		code = he.Code
-	}
-	errorPage := fmt.Sprintf("%d.html", code)
-
-	c.Render(http.StatusOK, errorPage, CS.boxStatus)
-}
+//func customHTTPErrorHandler(err error, c echo.Context) {
+//	code := http.StatusInternalServerError
+//	fmt.Println(err)
+//	eLogger.Error(err)
+//	if he, ok := err.(*echo.HTTPError); ok {
+//		code = he.Code
+//	}
+//	errorPage := fmt.Sprintf("%d.html", code)
+//
+//	c.Render(http.StatusOK, errorPage, CS.boxStatus)
+//}
 
 var Logfile *os.File
 var eLogger echo.Logger
@@ -78,7 +73,7 @@ func main() {
 
 	//Pre-compile templates
 	t := &Template{
-		templates: template.Must(template.ParseGlob("./views/*.html")),
+		templates: template.Must(template.ParseGlob("views/*.html")),
 	}
 	//Register templates
 	e.Renderer = t
@@ -86,17 +81,17 @@ func main() {
 	//注册中间件
 	//e.Use(middleware.Recover())
 	//注册中间件
-	Logfile, err := os.OpenFile("logs/sca_server.log", os.O_CREATE|os.O_RDWR|os.O_APPEND, 0660)
+	//	Logfile, err := os.OpenFile("logs/sca_server.log", os.O_CREATE|os.O_RDWR|os.O_APPEND, 0660)
 
-	if err != nil {
-		log.Fatalf("打开日志文件失败：%s:%v\n", "logs/sca_server.log", err)
-	}
-	e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
-		Format: "time=${time_rfc3339}, remote_ip=${remote_ip}, method=${method}, uri=${uri}, status=${status} latency=${latency}, bytes_in=${bytes_in},bytes_out=${bytes_out}\n",
-		Output: io.MultiWriter(Logfile, os.Stderr),
-	}))
-	e.Logger.SetLevel(echolog.DEBUG)
-	e.Logger.SetOutput(io.MultiWriter(Logfile, os.Stderr))
+	//if err != nil {
+	//	log.Fatalf("打开日志文件失败：%s:%v\n", "logs/sca_server.log", err)
+	//}
+	//e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
+	//	Format: "time=${time_rfc3339}, remote_ip=${remote_ip}, method=${method}, uri=${uri}, status=${status} latency=${latency}, bytes_in=${bytes_in},bytes_out=${bytes_out}\n",
+	//	Output: io.MultiWriter(Logfile, os.Stderr),
+	//}))
+	//e.Logger.SetLevel(echolog.)
+	//e.Logger.SetOutput(io.MultiWriter(Logfile, os.Stderr))
 
 	conf, env := config.Load(yamlFile)
 	logger := logger.InitLogger(env, zapYamlFile)
@@ -106,6 +101,7 @@ func main() {
 	container := container.NewContainer(rep, sess, conf, logger, env)
 	// 路由注册
 	router.Init(e, container)
+	myMiddleware.InitLoggerMiddleware(e, container)
 	myMiddleware.StaticContentsMiddleware(e, container, staticFile)
 
 	e.Logger.Fatal(e.Start(":8000"))

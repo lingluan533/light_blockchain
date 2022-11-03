@@ -41,3 +41,17 @@ extension:
 swagger:
   enabled: true
   path: /swagger/.*
+#consul
+ConsulConfig:
+  consul_address: "101.43.138.160"
+  consul_port: "8500"
+  ID: "EdgeNode001"
+  Name: "EdgeNode"
+  LocalAddress: "192.168.195.164"
+  LocalServicePort: 8000
+  HealthCheckID: "consul cloud"
+  HealthTCP: "192.168.195.164:8000"
+  HealthTimeout: "2s"
+  HealthInterval: "6s"
+log:
+  request_log_format: ${remote_ip} ${account_name} ${uri} ${method} ${status}

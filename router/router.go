@@ -20,6 +20,7 @@ func Init(e *echo.Echo, container container.Container) {
 	setUserController(e, container)
 	setIndexController(e, container)
 	setBlockChainController(e, container)
+	setLoginController(e, container)
 	//setFormatController(e, container)
 	//setAccountController(e, container)
 	//setHealthController(e, container)
@@ -64,13 +65,20 @@ func setUserController(e *echo.Echo, container container.Container) {
 func setIndexController(e *echo.Echo, container container.Container) {
 	index := controller.NewIndexController(container)
 	e.GET("/", func(c echo.Context) error { return index.Index(c) })
-
+	e.GET("/status.html", func(c echo.Context) error { return index.ShowStatus(c) })
+	e.GET("/blockstatus.html", func(c echo.Context) error { return index.ShowBlockStatus(c) })
 }
 
 func setBlockChainController(e *echo.Echo, container container.Container) {
 	controller := controller.NewBlockChainController(container)
 	e.GET("blockchain/queryTimeReceipts", func(c echo.Context) error { return controller.QueryTimeReceipts(c) })
 	e.GET("blockchain/queryTimeTransaction", func(c echo.Context) error { return controller.QueryTimeTransaction(c) })
+
+}
+func setLoginController(e *echo.Echo, container container.Container) {
+	controller := controller.NewUserController(container)
+	e.GET("/login.html", func(c echo.Context) error { return controller.ShowLogin(c) })
+	e.POST("/login", func(c echo.Context) error { return controller.Login(c) })
 
 }
 
