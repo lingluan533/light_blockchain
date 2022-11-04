@@ -32,6 +32,7 @@ func (controller *userController) Login(c echo.Context) error {
 	fmt.Println(username)
 	fmt.Println(remember)
 	controller.service.LoginMethod(username, password)
+	//controller.container.GetSession().SetValue()
 	return c.Render(http.StatusOK, "index.html", nil)
 }
 

@@ -149,16 +149,10 @@ func (u *blockChainService) QueryBlockInfosMethod(blockType string) ([]byte, err
 		fmt.Printf("Error reading response body: %v\n", err)
 		return nil, errors.New(" QueryTimeTransactionMethod Error on ioutil.ReadAll:" + err.Error())
 	}
-	//	fmt.Println(string(body))
-
 	var config []map[string]interface{}
-
 	err = json.Unmarshal([]byte(body), &config)
 	//fmt.Println(config)
 	fmt.Println(len(config))
-	//marshal, err := json.Marshal(config)
-	//fmt.Println(string(marshal))
-
 	return body, nil
 }
 

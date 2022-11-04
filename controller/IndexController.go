@@ -11,11 +11,16 @@ type IndexController interface {
 	Index(c echo.Context) error
 	ShowStatus(c echo.Context) error
 	ShowBlockStatus(c echo.Context) error
+	ShowDatafiles(c echo.Context) error
 }
 
 type indexController struct {
 	container container.Container
 	service   service.UserService
+}
+
+func (i indexController) ShowDatafiles(c echo.Context) error {
+	return c.Render(http.StatusOK, "datafiles.html", nil)
 }
 
 func (i indexController) Index(c echo.Context) error {

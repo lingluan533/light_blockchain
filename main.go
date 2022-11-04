@@ -78,21 +78,6 @@ func main() {
 	//Register templates
 	e.Renderer = t
 
-	//注册中间件
-	//e.Use(middleware.Recover())
-	//注册中间件
-	//	Logfile, err := os.OpenFile("logs/sca_server.log", os.O_CREATE|os.O_RDWR|os.O_APPEND, 0660)
-
-	//if err != nil {
-	//	log.Fatalf("打开日志文件失败：%s:%v\n", "logs/sca_server.log", err)
-	//}
-	//e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
-	//	Format: "time=${time_rfc3339}, remote_ip=${remote_ip}, method=${method}, uri=${uri}, status=${status} latency=${latency}, bytes_in=${bytes_in},bytes_out=${bytes_out}\n",
-	//	Output: io.MultiWriter(Logfile, os.Stderr),
-	//}))
-	//e.Logger.SetLevel(echolog.)
-	//e.Logger.SetOutput(io.MultiWriter(Logfile, os.Stderr))
-
 	conf, env := config.Load(yamlFile)
 	logger := logger.InitLogger(env, zapYamlFile)
 	logger.GetZapLogger().Infof("Loaded this configuration : application." + env + ".yml")
