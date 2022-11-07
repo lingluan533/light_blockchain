@@ -65,7 +65,99 @@
             </div>
 
         </div>
+        <div class="row tm-content-row tm-mt-big">
+            <div class="col-xl-12 col-lg-12 tm-md-12 tm-sm-12 tm-col">
+                <div class="bg-white tm-block h-100">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-12">
+                            <h2 class="tm-block-title d-inline-block" onclick="
+                            getBlockInfo('sensor')">传感器账本</h2>
+                            <input type="button" onclick=" getBlockInfo('sensor')" value="刷新数据">
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped tm-table-striped-even mt-3">
+                            <thead>
+                            <tr class="tm-bg-gray">
+                                <th scope="col">区块生成时间</th>
+                                <th scope="col">区块哈希</th>
+                                <th scope="col">区块ID</th>
+                                <th scope="col" class="text-center">账本类型</th>
+                            </tr>
+                            </thead>
+                            <tbody id="sensor">
 
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="tm-table-mt tm-table-actions-row">
+                        <div class="tm-table-actions-col-right">
+                            <span class="tm-pagination-label">Page</span>
+                            <nav aria-label="Page navigation" class="d-inline-block">
+                                <ul class="pagination tm-pagination">
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <span class="tm-dots d-block">...</span>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">13</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">14</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row tm-content-row tm-mt-big">
+            <div class="col-xl-12 col-lg-12 tm-md-12 tm-sm-12 tm-col">
+                <div class="bg-white tm-block h-100">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-12">
+                            <h2 class="tm-block-title d-inline-block" onclick="
+                            getBlockInfo('node_credible')">边缘计算节点账本</h2>
+                            <input type="button" onclick=" getBlockInfo('node_credible')" value="刷新数据">
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped tm-table-striped-even mt-3">
+                            <thead>
+                            <tr class="tm-bg-gray">
+                                <th scope="col">区块生成时间</th>
+                                <th scope="col">区块哈希</th>
+                                <th scope="col">区块ID</th>
+                                <th scope="col" class="text-center">账本类型</th>
+                            </tr>
+                            </thead>
+                            <tbody id="node_credible">
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="tm-table-mt tm-table-actions-row">
+                        <div class="tm-table-actions-col-right">
+                            <span class="tm-pagination-label">Page</span>
+                            <nav aria-label="Page navigation" class="d-inline-block">
+                                <ul class="pagination tm-pagination">
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <span class="tm-dots d-block">...</span>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">13</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">14</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row tm-content-row tm-mt-big">
             <div class="col-xl-12 col-lg-12 tm-md-12 tm-sm-12 tm-col">
                 <div class="bg-white tm-block h-100">
@@ -113,6 +205,53 @@
                 </div>
             </div>
 
+        </div>
+
+        <div class="row tm-content-row tm-mt-big">
+            <div class="col-xl-12 col-lg-12 tm-md-12 tm-sm-12 tm-col">
+                <div class="bg-white tm-block h-100">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-12">
+                            <h2 class="tm-block-title d-inline-block" onclick="
+                            getBlockInfo('service_access')">服务状态账本</h2>
+                            <input type="button" onclick=" getBlockInfo('service_access')" value="刷新数据">
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped tm-table-striped-even mt-3">
+                            <thead>
+                            <tr class="tm-bg-gray">
+                                <th scope="col">区块生成时间</th>
+                                <th scope="col">区块哈希</th>
+                                <th scope="col">区块ID</th>
+                                <th scope="col" class="text-center">账本类型</th>
+                            </tr>
+                            </thead>
+                            <tbody id="service_access">
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="tm-table-mt tm-table-actions-row">
+                        <div class="tm-table-actions-col-right">
+                            <span class="tm-pagination-label">Page</span>
+                            <nav aria-label="Page navigation" class="d-inline-block">
+                                <ul class="pagination tm-pagination">
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <span class="tm-dots d-block">...</span>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">13</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">14</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="row tm-content-row tm-mt-big">
             <div class="col-xl-12 col-lg-12 tm-md-12 tm-sm-12 tm-col">
@@ -184,45 +323,45 @@
                     }
 
                     console.log(data);
+                    for(var i = 0;i < len;i++) {
+                        var o = data[i];
+                        htmlStr += "<tr>";
+                        htmlStr += "  <td className=\"tm-product-name\">" + o.UpdateTimestamp + "</td>";
+                        htmlStr += " <td className=\"text-center\">" + o.BlockHash + "</td>";
+                        htmlStr += " <td className=\"text-center\">" + o.keyId + "</td>";
+                        htmlStr += " <td className=\"text-center\">" + o.LedgerType + "</td>";
+                        htmlStr += "</tr>";
+
+                    }
                     switch (blockType){
                         case "user_behaviour" :
-                            for(var i = 0;i < len;i++) {
-                                var o = data[i];
-                                htmlStr += "<tr>";
-                                htmlStr += "  <td className=\"tm-product-name\">" + o.UpdateTimestamp + "</td>";
-                                htmlStr += " <td className=\"text-center\">" + o.BlockHash + "</td>";
-                                htmlStr += " <td className=\"text-center\">" + o.keyId + "</td>";
-                                htmlStr += " <td className=\"text-center\">" + o.LedgerType + "</td>";
-                                htmlStr += "</tr>";
-
-                            }
                             //将拼接的字符串放进tbody里
                             $("#user_behaviour").html(htmlStr);
                             break;
                         case "video" :
-                            for(var i = 0;i < len;i++) {
-                                var o = data[i];
-
-                                //     < th
-                                // scope = "col" > 区块生成时间 < /th>
-                                // <th scope="col">区块哈希</th>
-                                // <th scope="col">区块ID</th>
-                                // <th scope="col" className="text-center">账本类型</th>
-                                htmlStr += "<tr>";
-                                htmlStr += "  <td className=\"tm-product-name\">" + o.UpdateTimestamp + "</td>";
-                                htmlStr += " <td className=\"text-center\">" + o.BlockHash + "</td>";
-                                htmlStr += " <td className=\"text-center\">" + o.keyId + "</td>";
-                                htmlStr += " <td className=\"text-center\">" + o.LedgerType + "</td>";
-                                htmlStr += "</tr>";
-
-                            }
                             //将拼接的字符串放进tbody里
                             $("#video").html(htmlStr);
+                            case "sensor":
+                                //将拼接的字符串放进tbody里
+                                $("#sensor").html(htmlStr);
+                            case "node_credible":
+                                //将拼接的字符串放进tbody里
+                                $("#node_credible").html(htmlStr);
+                        case "service_access":
+                            //将拼接的字符串放进tbody里
+                            $("#service_access").html(htmlStr);
+
                     }
 
 
                 }
             })
+        }
+        window.onload = function (){
+            var chain=["user_behaviour","video","sensor","node_credible","service_access"]
+            for (let i = 0; i<5; i++){
+                getBlockInfo(chain[i])
+            }
         }
     </script>
 

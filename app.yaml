@@ -1,0 +1,26 @@
+redis:
+  network: tcp
+  addr: 127.0.0.1
+  port: "6379"
+  password: password
+  db: 0
+  pools: 16
+  min_conns: 0
+email:
+  vendor: bupt
+  host: smtp.bupt.edu.cn
+  port: 465
+  sender: roottest@bupt.edu.cn
+  password: roottest
+  nice: root
+  cc: handaqi@bupt.edu.com.cn
+message:
+  vendor: easemob
+  token_url: http://a1.easemob.com/1113211109110751/scope/token
+  client_id: YXA6GfgasKrsSKSfCIVa7SSLNg
+  client_secret: YXA6NnCMnQL8d4GtSnLVggcwx8P8HG8
+  retry: 86400
+  token: ""
+  send_url: http://a1.easemob.com/1113211109110751/scope/sms/send
+  tid: "802"
+  expires: 120

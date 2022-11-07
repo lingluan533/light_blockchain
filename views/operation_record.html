@@ -35,29 +35,49 @@
                             <h2 class="tm-block-title d-inline-block">用户操作记录</h2>
                         </div>
                     </div>
-                    <ol class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
-                        <li class="tm-list-group-item">
-                            Donec eget libero
-                        </li>
-                        <li class="tm-list-group-item">
-                            Nunc luctus suscipit elementum
-                        </li>
-                        <li class="tm-list-group-item">
-                            Maecenas eu justo maximus
-                        </li>
-                        <li class="tm-list-group-item">
-                            Pellentesque auctor urna nunc
-                        </li>
-                        <li class="tm-list-group-item">
-                            Sit amet aliquam lorem efficitur
-                        </li>
-                        <li class="tm-list-group-item">
-                            Pellentesque auctor urna nunc
-                        </li>
-                        <li class="tm-list-group-item">
-                            Sit amet aliquam lorem efficitur
-                        </li>
-                    </ol>
+                                            <table class="table table-hover table-striped tm-table-striped-even mt-3 tm-list-group tm-list-group-alternate-color">
+                                                <thead>
+                                                <tr class="tm-bg-gray">
+                                                    <th scope="col"class="text-center">操作人</th>
+                                                    <th scope="col" class="text-center">文件名称</th>
+                                                    <th scope="col" class="text-center">操作类型</th>
+                                                    <th scope="col" class="text-center">文件哈希</th>
+                                                    <th scope="col" class="text-center">授权者</th>
+                                                    <th scope="col" class="text-center">操作时间</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="tbody1" >
+                                                </tbody>
+                                            </table>
+                        <!--                    <div class="row">-->
+<!--                        <div class="col-12">-->
+<!--                            <h2 class="tm-block-title d-inline-block">用户操作记录</h2>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <ol class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">-->
+<!--                        <li class="tm-list-group-item">-->
+<!--                            Donec eget libero-->
+<!--                        </li>-->
+<!--                        <li class="tm-list-group-item">-->
+<!--                            Nunc luctus suscipit elementum-->
+<!--                        </li>-->
+<!--                        <li class="tm-list-group-item">-->
+<!--                            Maecenas eu justo maximus-->
+<!--                        </li>-->
+<!--                        <li class="tm-list-group-item">-->
+<!--                            Pellentesque auctor urna nunc-->
+<!--                        </li>-->
+<!--                        <li class="tm-list-group-item">-->
+<!--                            Sit amet aliquam lorem efficitur-->
+<!--                        </li>-->
+<!--                        <li class="tm-list-group-item">-->
+<!--                            Pellentesque auctor urna nunc-->
+<!--                        </li>-->
+<!--                        <li class="tm-list-group-item">-->
+<!--                            Sit amet aliquam lorem efficitur-->
+<!--                        </li>-->
+<!--                    </ol>-->
                 </div>
             </div>
         </div>
@@ -75,13 +95,29 @@
                 async: false,
                 url: 'getOperationRecords',
                 success: function (data, status) {
-                    console.log(data)
+                    console.log(data[0])
+                    console.log(typeof data[0])
                     var htmlStr = "";
                     var len = 20;
                     if (data == null || data.length === 0) {
-                        window.alert("数据文件获取失败，或服务器没有文件!");
+                        toastr.error("查询失败或暂无记录");
                         return;
                     }
+                    if (data.length<=20){
+                        len = data.length;
+                    }
+                    for(var i = 0;i < len;i++) {
+                        htmlStr += "<tr>";
+                        htmlStr += "  <td class=\"tm-product-name tm-list-group-item\">" + data[i].Receipts[0].userName + "</td>";
+                        htmlStr += " <td class=\"text-center tm-list-group-item\">" + data[i].Receipts[0].fileName + "</td>";
+                        htmlStr += " <td class=\"text-center tm-list-group-item\">" + data[i].Receipts[0].operationType + "</td>";
+                        htmlStr += " <td class=\"text-center tm-list-group-item\">" + data[i].Receipts[0].fileHash + "</td>";
+                        htmlStr += " <td class=\"text-center tm-list-group-item\"> light_blockchain</td>";
+                        htmlStr += " <td class=\"text-center tm-list-group-item\">" + data[i].createTimestamp.substring(0,19) + "</td>";
+                        htmlStr += "</tr>";
+                    }
+                    //将拼接的字符串放进tbody里
+                    $("#tbody1").html(htmlStr);
                 },
         })
         }

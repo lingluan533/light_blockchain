@@ -55,6 +55,6 @@ ConsulConfig:
   HealthInterval: "6s"
 log:
   request_log_format: ${remote_ip} ${account_name} ${uri} ${method} ${status}
-//ETCD key前缀
+#ETCD key前缀
 EtcdKeyPrefix:
   user_operation: "USEROPERATION"

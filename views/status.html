@@ -181,9 +181,10 @@
                     var htmlStr = "";
                     var len = 20;
                     if (data == null || data.length === 0){
-                        window.alert("获取最近五分钟区块链存证失败，或存证数为0!");
+                        toastr.error("获取最近五分钟区块链存证失败，或存证数为0!");
                         return;
                     }
+                    toastr.success("数据加载成功!");
                     if(data.length < 20){
                         len = data.length;
                     }
@@ -205,6 +206,7 @@
                     }
                     //将拼接的字符串放进tbody里
                     $("#tbody").html(htmlStr);
+                    loaddata1();
                 }
             })
         }
@@ -219,15 +221,15 @@
                     var htmlStr = "";
                     var len = 20;
                     if (data == null || data.length === 0){
-                        window.alert("获取最近五分钟区块链交易失败，或交易数为0!");
+                       toastr.error("获取最近五分钟区块链交易失败，或交易数为0!");
                         return;
                     }
+                    toastr.success("数据加载成功!");
                     if(data.length < 20){
                         len = data.length;
                     }
 
                     for(var i = 0;i < len;i++) {
-
                         var emp = data[i];
                         var  o = JSON.parse(emp)
                         htmlStr += "<tr>";
@@ -245,6 +247,8 @@
                 }
             })
         }
+        window.onload = loaddata();
+
     </script>
 
 

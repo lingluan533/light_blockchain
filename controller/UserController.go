@@ -21,7 +21,13 @@ type userController struct {
 }
 
 func (controller *userController) GetOperationRecords(c echo.Context) error {
-	controller.service.GetAllOperationRecordsByUserName("zms")
+	records, err := controller.service.GetAllOperationRecordsByUserName("zms")
+	if err != nil {
+		fmt.Println("GetOperationRecords err=", err)
+		return c.JSON(http.StatusInternalServerError, nil)
+	}
+	//
+	return c.JSONBlob(http.StatusOK, records)
 }
 
 func (controller *userController) ShowLogin(c echo.Context) error {

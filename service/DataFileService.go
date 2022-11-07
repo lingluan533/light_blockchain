@@ -36,8 +36,8 @@ func (d dataFileService) SaveOnChainOfDownloadRecord(filePath, userName string) 
 	receipt.ReceiptValue = 1000
 	receipt.Version = "v1.0"
 	receipt.OperationType = "DOWNLOAD"
-	receipt.KeyId = d.container.GetConfig().EtcdPrefixConfig.UserOperation + "_" + userName + "_" + filePath
-	userBehaviour.EntityId = d.container.GetConfig().EtcdPrefixConfig.UserOperation + "_" + userName + "_" + filePath
+	receipt.KeyId = d.container.GetConfig().EtcdPrefixConfig.UserOperation + ":" + userName + ":" + filePath
+	userBehaviour.EntityId = receipt.KeyId
 	userBehaviour.CreateTimestamp = time.Now().String()
 	userBehaviour.DataRecNum = 1
 	userBehaviour.DataValue = 1

@@ -77,6 +77,7 @@ func setBlockChainController(e *echo.Echo, container container.Container) {
 	controller := controller.NewBlockChainController(container)
 	e.GET("blockchain/queryTimeReceipts", func(c echo.Context) error { return controller.QueryTimeReceipts(c) })
 	e.GET("blockchain/queryTimeTransaction", func(c echo.Context) error { return controller.QueryTimeTransaction(c) })
+	e.GET("blockchain/queryBlockInfos/:blockType", func(c echo.Context) error { return controller.QueryBlockInfos(c) })
 
 }
 func setLoginController(e *echo.Echo, container container.Container) {

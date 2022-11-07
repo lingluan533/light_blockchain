@@ -50,8 +50,10 @@ func (d dataFileController) DownLoadFile(c echo.Context) error {
 
 func (d dataFileController) ShowDataFiles(c echo.Context) error {
 	fileInfos := d.service.GetAllFiles()
-
-	return c.JSON(http.StatusOK, fileInfos[:20])
+	if len(fileInfos) < 25 {
+		return c.JSON(http.StatusOK, fileInfos)
+	}
+	return c.JSON(http.StatusOK, fileInfos[len(fileInfos)-25:])
 }
 func NewDataFileController(container container.Container) DataFileController {
 	return &dataFileController{
