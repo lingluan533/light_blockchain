@@ -9,16 +9,36 @@ import (
 	"net/url"
 	"sca_server/consul"
 	"sca_server/container"
+	"sca_server/model"
 
 	"strconv"
 )
 
 type UserService interface {
 	LoginMethod(user string, password string) (bool, error)
+	GetAllOperationRecordsByUserName(user string) error
 }
 
 type userService struct {
 	container container.Container
+}
+
+func (u userService) GetAllOperationRecordsByUserName(user string) error {
+	var data model.DataReceipts
+	logger := u.container.GetLogger()
+	// get a avaliable server
+	service, err := consul.GetOneOnlineAddress(u.container.GetConfig())
+	//logger.GetZapLogger().Errorf(" QueryTimeReceiptsMethod No Avaliable EdgeNode! %v", u.container.GetConfig().Consul)
+	if service == nil {
+		logger.GetZapLogger().Errorf("No Avaliable EdgeNode!")
+		return errors.New("No Avaliable EdgeNode!")
+	}
+	if err != nil {
+		logger.GetZapLogger().Errorf("Error on request Avaliable EdgeNode: %v\n", err)
+		return errors.New("Error on request Avaliable EdgeNode")
+	}
+	resp, err := http.PostForm("http://"+service.Address+":"+strconv.Itoa(service.Port)+"/queryOperationRecordsByUserName", url.Values{"user": {user}})
+
 }
 
 func (u userService) LoginMethod(user string, password string) (bool, error) {

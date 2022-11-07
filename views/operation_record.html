@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{template "thead" .}}
+
+    <title>数字保险箱</title>
+    <!--
+
+    -->
+    {{template "tlink" .}}
+
+    <style>
+        .lcollapse:after {
+            content: "\f078";/** 箭头向下图标*/
+            font-family: "Font Awesome\ 5 Free";
+            font-weight: 900;
+        }
+        .lcollapse.collapsed:after {
+            content: "\f054";/** 箭头向右图标*/
+            font-family: "Font Awesome\ 5 Free";
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body class="bg03">
+    <div class="container">
+        {{template "tmenu" .}}
+
+        <div class="row tm-content-row tm-mt-big">
+            <div class="col-xl-12 col-lg-12 tm-md-12 tm-sm-12  tm-col">
+                <div class="bg-white tm-block">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="tm-block-title d-inline-block">用户操作记录</h2>
+                        </div>
+                    </div>
+                    <ol class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
+                        <li class="tm-list-group-item">
+                            Donec eget libero
+                        </li>
+                        <li class="tm-list-group-item">
+                            Nunc luctus suscipit elementum
+                        </li>
+                        <li class="tm-list-group-item">
+                            Maecenas eu justo maximus
+                        </li>
+                        <li class="tm-list-group-item">
+                            Pellentesque auctor urna nunc
+                        </li>
+                        <li class="tm-list-group-item">
+                            Sit amet aliquam lorem efficitur
+                        </li>
+                        <li class="tm-list-group-item">
+                            Pellentesque auctor urna nunc
+                        </li>
+                        <li class="tm-list-group-item">
+                            Sit amet aliquam lorem efficitur
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        {{template "tfooter" .}}
+
+    </div>
+
+    {{template "tjs" .}}
+    <script type="text/javascript">
+        window.onload = function (){
+            //提交表单
+            $.ajax({
+                type: 'GET',
+                async: false,
+                url: 'getOperationRecords',
+                success: function (data, status) {
+                    console.log(data)
+                    var htmlStr = "";
+                    var len = 20;
+                    if (data == null || data.length === 0) {
+                        window.alert("数据文件获取失败，或服务器没有文件!");
+                        return;
+                    }
+                },
+        })
+        }
+    </script>
+
+</body>
+</html>

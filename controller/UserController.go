@@ -12,11 +12,16 @@ type UserController interface {
 	Login(c echo.Context) error
 	Registe(c echo.Context) error
 	ShowLogin(c echo.Context) error
+	GetOperationRecords(c echo.Context) error
 }
 
 type userController struct {
 	container container.Container
 	service   service.UserService
+}
+
+func (controller *userController) GetOperationRecords(c echo.Context) error {
+	controller.service.GetAllOperationRecordsByUserName("zms")
 }
 
 func (controller *userController) ShowLogin(c echo.Context) error {

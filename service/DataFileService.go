@@ -36,8 +36,8 @@ func (d dataFileService) SaveOnChainOfDownloadRecord(filePath, userName string) 
 	receipt.ReceiptValue = 1000
 	receipt.Version = "v1.0"
 	receipt.OperationType = "DOWNLOAD"
-	receipt.KeyId = userName + "_" + filePath
-	userBehaviour.EntityId = userName + "_" + filePath
+	receipt.KeyId = d.container.GetConfig().EtcdPrefixConfig.UserOperation + "_" + userName + "_" + filePath
+	userBehaviour.EntityId = d.container.GetConfig().EtcdPrefixConfig.UserOperation + "_" + userName + "_" + filePath
 	userBehaviour.CreateTimestamp = time.Now().String()
 	userBehaviour.DataRecNum = 1
 	userBehaviour.DataValue = 1
@@ -52,6 +52,7 @@ func (d dataFileService) SaveOnChainOfDownloadRecord(filePath, userName string) 
 	userBehaviour.Receipts = append(userBehaviour.Receipts, *receipt)
 	service, err := consul.GetOneOnlineAddress(d.container.GetConfig())
 	logger := d.container.GetLogger()
+	logger.GetZapLogger().Info("Finding EdgeNode Server....")
 	if service == nil {
 		logger.GetZapLogger().Errorf("No Avaliable EdgeNode!")
 		return false, errors.New("No Avaliable EdgeNode!")
@@ -60,8 +61,10 @@ func (d dataFileService) SaveOnChainOfDownloadRecord(filePath, userName string) 
 		logger.GetZapLogger().Errorf("Error on request Avaliable EdgeNode: %v\n", err)
 		return false, errors.Errorf("Error on request Avaliable EdgeNode")
 	}
+	logger.GetZapLogger().Info("Got  EdgeNode Server " + service.Address)
 	data, err := json.Marshal(userBehaviour)
 	resp, err := http.Post("http://"+service.Address+":"+strconv.Itoa(service.Port)+"/storeOperationRecord", "application/json", bytes.NewBuffer(data))
+	logger.GetZapLogger().Info("http.Post finished ")
 	if err != nil {
 		fmt.Printf("Error on request: %v\n", err)
 		return false, errors.New(" storeOperationRecord Error on request:" + err.Error())
@@ -86,7 +89,7 @@ func visit(files *[]string, fileInfos *[]model.DataFile) filepath.WalkFunc {
 		*files = append(*files, path)
 		var fileInfo = new(model.DataFile)
 		fileInfo.FileSize = strconv.FormatInt(info.Size(), 10) + "B"
-		fileInfo.FilePath = path
+		fileInfo.FilePath = strings.Replace(path, "\\", "\\\\", -1)
 		fileInfo.UpdateTime = info.ModTime().String()
 		fileInfo.FileName = info.Name()
 		if info.IsDir() {
@@ -106,8 +109,8 @@ func visit(files *[]string, fileInfos *[]model.DataFile) filepath.WalkFunc {
 		}
 		//E:\Go_WorkSpace\hraft1102\scope\2022-10-29\user_behaviour\MINUTE\593 593 41824 2022-10-29 09:54:30.7801984 +0800 CST -rw-rw-rw-
 		*fileInfos = append(*fileInfos, *fileInfo)
-		fmt.Println(fileInfo)
-		fmt.Println(path + " " + info.Name() + " " + strconv.Itoa(int(info.Size())) + " " + info.ModTime().String() + " " + info.Mode().String())
+		//fmt.Println(fileInfo)
+		//fmt.Println(path + " " + info.Name() + " " + strconv.Itoa(int(info.Size())) + " " + info.ModTime().String() + " " + info.Mode().String())
 		return nil
 	}
 }

@@ -105,7 +105,7 @@
                     if(data.length < 20){
                         len = data.length;
                     }
-
+                    //window.alert(data[0].filePath)
                     for(var i = 0;i < len;i++) {
                         var o = data[i];
                         var filePath = o.FilePath;
@@ -114,7 +114,7 @@
                         htmlStr += "<tr>  <th scope=\"row\">\n" +
                             "                                    <input type=\"checkbox\" aria-label=\"Checkbox\">\n" +
                             "                                </th>";
-                        htmlStr += "  <td class=\"tm-product-name\">" + o.FileName + "</td>";
+                        htmlStr += "  <td class=\"tm-product-name\">" + o.FilePath + "</td>";
                         htmlStr += " <td class=\"text-center\">" + o.FileType + "</td>";
                         htmlStr += " <td class=\"text-center\">" + o.FileSize + "</td>";
                         htmlStr += " <td class=\"text-center\">" + o.ChainOfFile + "</td>";
@@ -127,31 +127,52 @@
                             "                                        <button type=\"submit\" class=\"btn btn-danger\">删除" +
                             "                                        </button>\n" +
                             "                                    </td></tr>";
-                        /*
-                        *     <th scope="row">
-                                    <input type="checkbox" aria-label="Checkbox">
-                                </th>
-                                <td class="tm-product-name">2022-10-28\video\MINUTE\1345</td>
-                                <td class="text-center">交易文件</td>
-                                <td class="text-center">416kb</td>
-                                <td>2021-09-06 10:07:31.4533352</td>
-                                <td><i class="fas fa-trash-alt tm-trash-icon"></i></td>*/
-                    }
+
+
+                }
                     //将拼接的字符串放进tbody里
                     $("#tbody1").html(htmlStr);
-                }
-            })
-        }
+            },
+            })}
             function  downloadFile(filePath){
                 //1.检查权限
                 //2.记录上链
+                console.log(filePath)
                 $.ajax({
-                    type: 'GET',
+                    type: 'POST',
                     async: false,
-                    url: 'downLoadFile?filePath='+filePath,
+                    url: 'downLoadFile',
+                    data:{
+                        "filePath":filePath,
+                    },
                     success: function (data, status) {
                         if (status==="success"){
-                            window.location = filePath;
+                            $.ajax({
+                                type: 'GET',
+                                async: false,
+                                url: 'downLoad?filePath='+filePath,
+                                success:function (res,status){
+                                    console.log(res)
+                                    console.log(status)
+                                    toastr.success('下载记录已记载到区块链！')
+                                    var blob = new Blob([res], {//这个里面的data 的二进制文件 创建一个文件对象
+                                        type:'text/plain;charset=utf-8'
+                                    })
+                                    var downloadElement = document.createElement('a')//创建一个a 虚拟标签
+                                    var href = window.URL.createObjectURL(blob) // 创建下载的链接
+                                    downloadElement.href = href
+                                    downloadElement.download =
+                                        decodeURI(
+                                           filePath
+                                            // '失败明细.txt'
+                                        ) || '' // 下载后文件名
+                                    document.body.appendChild(downloadElement)
+                                    downloadElement.click() // 点击下载
+                                    document.body.removeChild(downloadElement) // 下载完成移除元素
+                                    window.URL.revokeObjectURL(href)
+                                }
+                            })
+
                         }else{
                             window.alert("文件下载失败，请检查区块链运行状态！")
                         }

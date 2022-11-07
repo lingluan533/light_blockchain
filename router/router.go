@@ -51,22 +51,17 @@ func setCORSConfig(e *echo.Echo, container container.Container) {
 	}
 }
 
-//func setErrorController(e *echo.Echo, container container.Container) {
-//	errorHandler := controller.NewErrorController(container)
-//	e.HTTPErrorHandler = errorHandler.JSONError
-//	e.Use(middleware.Recover())
-//}
-
 func setDataFileController(e *echo.Echo, container container.Container) {
 	dataFileController := controller.NewDataFileController(container)
 	e.GET("/allFiles", func(c echo.Context) error { return dataFileController.ShowDataFiles(c) })
-	e.GET("/downLoadFile", func(c echo.Context) error { return dataFileController.DownLoadFile(c) })
+	e.POST("/downLoadFile", func(c echo.Context) error { return dataFileController.DownLoadFile(c) })
+	e.GET("/downLoad", func(c echo.Context) error { return dataFileController.DownLoad(c) })
 
 }
 func setUserController(e *echo.Echo, container container.Container) {
 	user := controller.NewUserController(container)
 	e.POST("/user/login", func(c echo.Context) error { return user.Login(c) })
-
+	e.GET("/getOperationRecords", func(c echo.Context) error { return user.GetOperationRecords(c) })
 }
 
 func setIndexController(e *echo.Echo, container container.Container) {
@@ -75,6 +70,7 @@ func setIndexController(e *echo.Echo, container container.Container) {
 	e.GET("/status.html", func(c echo.Context) error { return index.ShowStatus(c) })
 	e.GET("/blockstatus.html", func(c echo.Context) error { return index.ShowBlockStatus(c) })
 	e.GET("/datafiles.html", func(c echo.Context) error { return index.ShowDatafiles(c) })
+	e.GET("/operation_record.html", func(c echo.Context) error { return index.ShowOperationRecord(c) })
 }
 
 func setBlockChainController(e *echo.Echo, container container.Container) {

@@ -73,16 +73,19 @@ type ConsulConfig struct {
 type LogConfig struct {
 	RequestLogFormat string `yaml:"request_log_format" default:"${remote_ip} ${account_name} ${uri} ${method} ${status}"`
 }
-
+type EtcdPrefixConfig struct {
+	UserOperation string `yaml:"user_operation"`
+}
 type Config struct {
-	MySql     MysqlConfig   `yaml:mysql`
-	Redis     RedisConfig   `yaml:"redis"`
-	EMail     EMailConfig   `yaml:"email"`
-	Message   MessageConfig `yaml:"message"`
-	Extension Extension     `yaml:"extension"`
-	Swagger   Swagger       `yaml:"swagger"`
-	Consul    ConsulConfig  `yaml:"ConsulConfig"`
-	LogConfig LogConfig     `yaml:"LogConfig"`
+	MySql            MysqlConfig      `yaml:mysql`
+	Redis            RedisConfig      `yaml:"redis"`
+	EMail            EMailConfig      `yaml:"email"`
+	Message          MessageConfig    `yaml:"message"`
+	Extension        Extension        `yaml:"extension"`
+	Swagger          Swagger          `yaml:"swagger"`
+	Consul           ConsulConfig     `yaml:"ConsulConfig"`
+	LogConfig        LogConfig        `yaml:"LogConfig"`
+	EtcdPrefixConfig EtcdPrefixConfig `yaml:"EtcdKeyPrefix"`
 }
 
 const (
