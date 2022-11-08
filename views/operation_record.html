@@ -95,6 +95,12 @@
                 async: false,
                 url: 'getOperationRecords',
                 success: function (data, status) {
+                    console.log(status)
+                    console.log(data)
+                    // if (status==10000){
+                    //     toastr.error("区块链集群不可用！");
+                    //     return;
+                    // }
                     console.log(data[0])
                     console.log(typeof data[0])
                     var htmlStr = "";
@@ -103,6 +109,7 @@
                         toastr.error("查询失败或暂无记录");
                         return;
                     }
+                    toastr.success("操作记录加载成功！")
                     if (data.length<=20){
                         len = data.length;
                     }

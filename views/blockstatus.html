@@ -333,7 +333,9 @@
                         htmlStr += "</tr>";
 
                     }
+                    toastr.success("区块信息加载成功!");
                     switch (blockType){
+
                         case "user_behaviour" :
                             //将拼接的字符串放进tbody里
                             $("#user_behaviour").html(htmlStr);

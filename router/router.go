@@ -22,11 +22,17 @@ func Init(e *echo.Echo, container container.Container) {
 	setBlockChainController(e, container)
 	setLoginController(e, container)
 	setDataFileController(e, container)
+	setEdgeNodeController(e, container)
 	//setFormatController(e, container)
 	//setAccountController(e, container)
 	//setHealthController(e, container)
 
 	setSwagger(container, e)
+}
+
+func setEdgeNodeController(e *echo.Echo, container container.Container) {
+	edgeNodeController := controller.NewEdgeNodeController(container)
+	e.GET("/countOfServices", func(c echo.Context) error { return edgeNodeController.GetCountOfService(c) })
 }
 
 func setCORSConfig(e *echo.Echo, container container.Container) {
@@ -67,6 +73,7 @@ func setUserController(e *echo.Echo, container container.Container) {
 func setIndexController(e *echo.Echo, container container.Container) {
 	index := controller.NewIndexController(container)
 	e.GET("/", func(c echo.Context) error { return index.Index(c) })
+	e.GET("/index.html", func(c echo.Context) error { return index.Index(c) })
 	e.GET("/status.html", func(c echo.Context) error { return index.ShowStatus(c) })
 	e.GET("/blockstatus.html", func(c echo.Context) error { return index.ShowBlockStatus(c) })
 	e.GET("/datafiles.html", func(c echo.Context) error { return index.ShowDatafiles(c) })

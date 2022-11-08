@@ -129,13 +129,12 @@ function drawPieChart() {
       responsive: true,
       maintainAspectRatio: false
     };
-
     configPie = {
       type: "pie",
       data: {
         datasets: [
           {
-            data: [4600, 5400],
+            data: [2, 3],
             backgroundColor: [
               window.chartColors.purple,
               window.chartColors.green
@@ -143,10 +142,24 @@ function drawPieChart() {
             label: "Storage"
           }
         ],
-        labels: ["Used: 4,600 GB", "Available: 5,400 GB"]
+        labels: ["online", "offline"]
       },
       options: optionsPie
     };
+    $.ajax({
+      type: 'GET',
+      async: false,
+      url: '/countOfServices',
+      success: function (data, status) {
+        var o = JSON.parse(data)
+        console.log(data)
+        configPie.data.datasets[0].data[0] = o.online
+        configPie.data.datasets[0].data[1] = o.offline
+      }
+    })
+
+
+
 
     pieChart = new Chart(ctxPie, configPie);
   }

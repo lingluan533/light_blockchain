@@ -8,6 +8,10 @@ import (
 	"os"
 )
 
+const (
+	EdgeNodeNotFound = 10000
+)
+
 type MysqlConfig struct {
 	Dialect   string `default:"mysql"`
 	Host      string
