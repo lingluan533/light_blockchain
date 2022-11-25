@@ -171,6 +171,7 @@
     </script>
     <script>
         function loaddata() {
+            loaddata1();
             //提交表单
             $.ajax({
                 type: 'GET',
@@ -206,7 +207,6 @@
                     }
                     //将拼接的字符串放进tbody里
                     $("#tbody").html(htmlStr);
-                    loaddata1();
                 }
             })
         }

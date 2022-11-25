@@ -31,91 +31,82 @@
         <!-- row -->
         <div class="row tm-content-row tm-mt-big">
             <div class="tm-col tm-col-big">
-                <div class="bg-white tm-block h-100">
-                    <h2 class="tm-block-title">Latest Hits</h2>
-                    <canvas id="lineChart"></canvas>
+                <div class="bg-white tm-block " style="width: 1200px; height: 700px;">
+                    <h2 class="tm-block-title">数据统计</h2>
+                    <canvas id="barChart" style="display: block;  height: 500px;"></canvas>
                 </div>
             </div>
-            <div class="tm-col tm-col-big">
-                <div class="bg-white tm-block h-100">
-                    <h2 class="tm-block-title">Performance</h2>
-                    <canvas id="barChart"></canvas>
+            <div class=" tm-col-small" style="margin-left: 300px;">
+                <div class="bg-white tm-block "style=" height: 700px;">
+                    <h2 class="tm-block-title">边缘计算节点集群状态</h2>
+                    <canvas id="pieChart" class="chartjs-render-monitor" ></canvas>
                 </div>
-            </div>
+                </div>
             <div class="tm-col tm-col-small">
-                <div class="bg-white tm-block h-100">
-                    <canvas id="pieChart" class="chartjs-render-monitor"></canvas>
-                </div>
-            </div>
-
-            <div class="tm-col tm-col-big">
-                <div class="bg-white tm-block h-100">
-                    <div class="row">
-                        <div class="col-8">
-                            <h2 class="tm-block-title d-inline-block">Top Product List</h2>
+                <div class="bg-white tm-block h-100" style="width: 1200px;">
+                    <h2 class="tm-block-title">边缘计算设备信息</h2>
+            <div class="tm-col tm-col-big" id = "edgenodeinfo" style ="overflow-x: auto;white-space:nowrap; width:1000px;">
+                <div class="bg-white" style="white-space:nowrap;display:inline-block; width: 480px;">
+                    <img src="img/edgenode.png" alt="Profile Image" class="img-fluid" >
+                    <div class=" tm-list-group tm-list-group-alternate-color" >
+                        <div class="tm-list-group-item mb-3 ">
+                            <label class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">运行状态：
+                            </label>
+                        </div>
+                        <div class="tm-list-group-item mb-3">
+                            <label  class="col-xl-4 col-lg-4 col-md-4 col-sm-5 mb-2">节点名称：</label>
+                        </div>
+                        <div class="mb-3">
+                            <label  class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">内网地址：</label>
 
                         </div>
-                        <div class="col-4 text-right">
-                            <a href="products.html" class="tm-link-black">View All</a>
+                        <div class="mb-3">
+                            <label  class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">CPU占用：
+                            </label>
+
                         </div>
+                        <div class="input-group mb-3">
+                            <label  class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">内存占用：
+                            </label>
+
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="ml-auto col-xl-8 col-lg-8 col-md-8 col-sm-7 pl-0">
+                                <button type="submit" class="btn btn-primary">探测
+                                </button>&nbsp;&nbsp;&nbsp; <button type="submit" class="btn btn-primary">重启
+                            </button>
+                            </div>
+                        </div>
+
                     </div>
-                    <ol class="tm-list-group tm-list-group-alternate-color tm-list-group-pad-big">
-                        <li class="tm-list-group-item">
-                            Donec eget libero
-                        </li>
-                        <li class="tm-list-group-item">
-                            Nunc luctus suscipit elementum
-                        </li>
-                        <li class="tm-list-group-item">
-                            Maecenas eu justo maximus
-                        </li>
-                        <li class="tm-list-group-item">
-                            Pellentesque auctor urna nunc
-                        </li>
-                        <li class="tm-list-group-item">
-                            Sit amet aliquam lorem efficitur
-                        </li>
-                        <li class="tm-list-group-item">
-                            Pellentesque auctor urna nunc
-                        </li>
-                        <li class="tm-list-group-item">
-                            Sit amet aliquam lorem efficitur
-                        </li>
-                    </ol>
                 </div>
-            </div>
-            <div class="tm-col tm-col-big">
-                <div class="bg-white tm-block h-100">
-                    <h2 class="tm-block-title">Calendar</h2>
-                    <div id="calendar"></div>
-                    <div class="row mt-4">
-                        <div class="col-12 text-right">
-                            <a href="#" class="tm-link-black">View Schedules</a>
-                        </div>
-                    </div>
 
-                </div>
             </div>
-            <div class="tm-col tm-col-small">
-                <div class="bg-white tm-block h-100">
+                    </div>
+                </div>
+            <div class="tm-col tm-col-small " style="margin-left: 600px;">
+                <div class="bg-white tm-block ">
                     <h2 class="tm-block-title">Upcoming Tasks</h2>
                     <ol class="tm-list-group">
                         <li class="tm-list-group-item">List of tasks</li>
                         <li class="tm-list-group-item">Lorem ipsum doloe</li>
                         <li class="tm-list-group-item">Read reports</li>
                         <li class="tm-list-group-item">Write email</li>
-
                         <li class="tm-list-group-item">Call customers</li>
                         <li class="tm-list-group-item">Go to meeting</li>
                         <li class="tm-list-group-item">Weekly plan</li>
                         <li class="tm-list-group-item">Ask for feedback</li>
-
                         <li class="tm-list-group-item">Meet Supervisor</li>
                         <li class="tm-list-group-item">Company trip</li>
                     </ol>
                 </div>
             </div>
+            </div>
+            </div>
         </div>
+
+
+
         <footer class="row tm-mt-small">
             <div class="col-12 font-weight-light">
                 <p class="d-inline-block tm-bg-black text-white py-2 px-4">
@@ -153,18 +144,123 @@
     // DOM is ready
     $(function () {
         updateChartOptions();
-        drawLineChart(); // Line Chart
+        //drawLineChart(); // Line Chart
         drawBarChart(); // Bar Chart
         drawPieChart(); // Pie Chart
-        drawCalendar(); // Calendar
+        //drawCalendar(); // Calendar
 
-        $(window).resize(function () {
-            updateChartOptions();
-            updateLineChart();
-            updateBarChart();
-            reloadPage();
-        });
+        // $(window).resize(function () {
+        //     updateChartOptions();
+        //     updateLineChart();
+        //     updateBarChart();
+        //     reloadPage();
+        // });
     })
+    window.onload  = function () {
+        $.ajax({
+            type: 'GET',
+            async: false,
+            url: 'getClusterInfo',
+            success: function (data, status) {
+                var htmlStr = "";
+                var len = 20;
+                console.log(data)
+                if (data == null || data.length === 0) {
+                    return;
+                }
+                if (data.length<=20){
+                    len = data.length;
+                }
+                for(var i = 0;i < len;i++) {
+                    var d = data[i];
+
+                    htmlStr += `<div className="bg-white" style="white-space:nowrap;display:inline-block; width: 480px;">
+                        <img src="img/edgenode.png" alt="Profile Image" className="img-fluid" style="
+    width: 264px;">
+                            <div className=" tm-list-group tm-list-group-alternate-color">
+                                <div className="tm-list-group-item mb-3 ">
+                                    <label htmlFor="name"
+                                           className="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">运行状态：
+                                    </label>`
+                        htmlStr += `<label>`+ d.onlineStatus+` </label>`
+                        htmlStr += `</div>
+                                <div className="tm-list-group-item mb-3">
+                                    <label htmlFor="description"
+                                           className="col-xl-4 col-lg-4 col-md-4 col-sm-5 mb-2">节点名称：</label>`
+                        htmlStr += `<label>`+ d.nodeName+` </label>`
+                            htmlStr+=`</div>
+                                <div className="mb-3">
+                                    <label htmlFor="category"
+                                           className="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">内网地址：</label>`
+                    htmlStr += `<label>`+ d.ipAddress+` </label>`
+                         htmlStr+=`</div>
+                                <div className="mb-3">
+                                    <label htmlFor="expire_date"
+                                           className="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">CPU占用：
+                                    </label>`
+                    htmlStr += `<label>`+  Math.round(d.cpuUsedPercent)+`% </label>`
+                    htmlStr+=`</div>
+                                <div className="input-group mb-3">
+                                    <label htmlFor="stock"
+                                           className="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">内存占用：
+                                    </label>`
+                    htmlStr += `<label>`+ Math.round(d.memUsedPercent*100)/100+`% </label>`
+                    htmlStr+=`
+                                </div>
+                                <div className="input-group mb-3">
+                                    <div className="ml-auto col-xl-8 col-lg-8 col-md-8 col-sm-7 pl-0">
+                                        <button type="submit" className="btn btn-primary" onclick="helloEdgeNode(\``+d.ipAddress+`\`)">探测
+                                        </button>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <button type="submit" className="btn btn-primary">重启
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                    </div>`
+                }
+                //将拼接的字符串放进tbody里
+                $("#edgenodeinfo").html(htmlStr);
+
+            }
+        })
+    }
+    // 探测边缘计算节点
+    function helloEdgeNode(ipAddress){
+        $.ajax({
+            type: 'POST',
+            async: false,
+            url: 'helloEdgeNode',
+            data:{"ipAddress":ipAddress},
+            success: function (data, status) {
+                if (data=="error"){
+                    window.alert("节点未响应,请人工排查！")
+                    toastr.error('节点未响应,请人工排查！')
+                }else{
+                    window.alert('Hello EdgeNode!')
+                    toastr.success('Hello EdgeNode!')
+                }
+            }
+        })
+    }
+    // 重启边缘计算节点
+    function rebootEdgeNode(ipAddress){
+        $.ajax({
+            type: 'POST',
+            async: false,
+            url: 'rebootEdgeNode',
+            data:{"ipAddress":ipAddress},
+            success: function (data, status) {
+                if (data==="error"){
+                    toastr.error("节点未响应,请人工排查！")
+                }else{
+                    toastr.success("Hello EdgeNode!")
+                }
+            }
+        })
+    }
+
 </script>
 </body>
 </html>

@@ -7,6 +7,8 @@ package main
 
 import (
 	"embed"
+	"github.com/gorilla/sessions"
+	"github.com/labstack/echo-contrib/session"
 	"html/template"
 	"io"
 	_ "net/http"
@@ -16,9 +18,10 @@ import (
 	"sca_server/container"
 	"sca_server/logger"
 	myMiddleware "sca_server/middleware"
+	"sca_server/mysessions"
 	"sca_server/repository"
 	"sca_server/router"
-	"sca_server/session"
+
 	// 这里一定要import;很重要
 	_ "github.com/mbobakov/grpc-consul-resolver"
 	//导入echo包
@@ -77,12 +80,13 @@ func main() {
 	}
 	//Register templates
 	e.Renderer = t
-
+	// 使用session
+	e.Use(session.Middleware(sessions.NewCookieStore([]byte("secret"))))
 	conf, env := config.Load(yamlFile)
 	logger := logger.InitLogger(env, zapYamlFile)
 	logger.GetZapLogger().Infof("Loaded this configuration : application." + env + ".yml")
 	rep := repository.NewBlockChainRepository(logger, conf)
-	sess := session.NewSession()
+	sess := mysessions.NewSession()
 	container := container.NewContainer(rep, sess, conf, logger, env)
 	// 路由注册
 	router.Init(e, container)

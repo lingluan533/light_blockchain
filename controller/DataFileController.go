@@ -13,11 +13,17 @@ type DataFileController interface {
 	ShowDataFiles(c echo.Context) error
 	DownLoadFile(c echo.Context) error
 	DownLoad(c echo.Context) error
+	GetTotalSizeOfDataFiles(c echo.Context) error
 }
 
 type dataFileController struct {
 	container container.Container
 	service   service.DataFileService
+}
+
+func (d dataFileController) GetTotalSizeOfDataFiles(c echo.Context) error {
+	sizeMap := d.service.GetTotalSizeOfDataFiles()
+	return c.JSON(http.StatusOK, sizeMap)
 }
 
 func (d dataFileController) DownLoad(c echo.Context) error {

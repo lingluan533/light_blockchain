@@ -1,4 +1,4 @@
-package session
+package mysessions
 
 import (
 	"encoding/json"
@@ -7,7 +7,6 @@ import (
 	"github.com/gorilla/sessions"
 	echoSession "github.com/labstack/echo-contrib/session"
 	"github.com/labstack/echo/v4"
-
 )
 
 const (
@@ -29,7 +28,6 @@ type Session interface {
 	Delete() error
 	SetValue(key string, value interface{}) error
 	GetValue(key string) string
-
 }
 
 // NewSession is constructor.
@@ -100,5 +98,3 @@ func (s *session) GetValue(key string) string {
 	}
 	return ""
 }
-
-

@@ -77,7 +77,7 @@ function drawBarChart() {
             },
             scaleLabel: {
               display: true,
-              labelString: "Hits"
+              labelString: "区块链数据量统计"
             }
           }
         ]
@@ -90,10 +90,10 @@ function drawBarChart() {
     configBar = {
       type: "bar",
       data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: ["user_behaviour", "video", "sensor", "node_credible", "service_access"],
         datasets: [
           {
-            label: "# of Hits",
+            label: "数量总量（Byte）",
             data: [12, 19, 3, 5, 2, 3],
             backgroundColor: [
               "rgba(255, 99, 132, 0.2)",
@@ -117,6 +117,21 @@ function drawBarChart() {
       },
       options: optionsBar
     };
+
+    $.ajax({
+      type: 'GET',
+      async: false,
+      url: '/countDataSize',
+      success: function (data, status) {
+        console.log(data)
+        configBar.data.datasets[0].data[0] = data.user_behaviour
+        configBar.data.datasets[0].data[1] = data.video
+        configBar.data.datasets[0].data[2] = data.sensor
+        configBar.data.datasets[0].data[3] = data.node_credible
+        configBar.data.datasets[0].data[4] = data.service_access
+
+      }
+    })
 
     barChart = new Chart(ctxBar, configBar);
   }
@@ -151,10 +166,10 @@ function drawPieChart() {
       async: false,
       url: '/countOfServices',
       success: function (data, status) {
-        var o = JSON.parse(data)
+        //var o = JSON.parse(data)
         console.log(data)
-        configPie.data.datasets[0].data[0] = o.online
-        configPie.data.datasets[0].data[1] = o.offline
+        configPie.data.datasets[0].data[0] = data.online
+        configPie.data.datasets[0].data[1] = data.offline
       }
     })
 

@@ -23,9 +23,25 @@ import (
 type DataFileService interface {
 	GetAllFiles() []model.DataFile
 	SaveOnChainOfDownloadRecord(filePath, userName string) (bool, error)
+	GetTotalSizeOfDataFiles() map[string]int
 }
 type dataFileService struct {
 	container container.Container
+}
+
+var filePaths []string
+var fileInfos []model.DataFile
+var paths []string
+var countMap map[string]int
+
+func (d dataFileService) GetTotalSizeOfDataFiles() map[string]int {
+	root := d.container.GetConfig().BlockConfig.DataFileRootPath
+	countMap = make(map[string]int)
+	err := filepath.Walk(root, countFileSize(&paths, countMap))
+	if err != nil {
+		fmt.Println("filepath.Walk err ", err)
+	}
+	return countMap
 }
 
 func (d dataFileService) SaveOnChainOfDownloadRecord(filePath, userName string) (bool, error) {
@@ -78,9 +94,26 @@ func (d dataFileService) SaveOnChainOfDownloadRecord(filePath, userName string) 
 
 }
 
-var filePaths []string
-var fileInfos []model.DataFile
-
+func countFileSize(files *[]string, countSizeMap map[string]int) filepath.WalkFunc {
+	return func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			log.Fatal(err)
+		}
+		if strings.Contains(path, "user_behaviour") {
+			countSizeMap["user_behaviour"] += int(info.Size())
+		} else if strings.Contains(path, "node_credible") {
+			countSizeMap["node_credible"] += int(info.Size())
+		} else if strings.Contains(path, "service_access") {
+			countSizeMap["service_access"] += int(info.Size())
+		} else if strings.Contains(path, "sensor") {
+			countSizeMap["sensor"] += int(info.Size())
+		} else if strings.Contains(path, "video") {
+			countSizeMap["video"] += int(info.Size())
+		}
+		*files = append(*files, path)
+		return nil
+	}
+}
 func visit(files *[]string, fileInfos *[]model.DataFile) filepath.WalkFunc {
 	return func(path string, info os.FileInfo, err error) error {
 		if err != nil {
@@ -115,7 +148,7 @@ func visit(files *[]string, fileInfos *[]model.DataFile) filepath.WalkFunc {
 	}
 }
 func (d dataFileService) GetAllFiles() []model.DataFile {
-	root := "E:\\Go_WorkSpace\\hraft1102\\scope"
+	root := d.container.GetConfig().BlockConfig.DataFileRootPath
 	err := filepath.Walk(root, visit(&filePaths, &fileInfos))
 	if err != nil {
 		fmt.Println("filepath.Walk err ", err)
