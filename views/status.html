@@ -189,7 +189,7 @@
                     if(data.length < 20){
                         len = data.length;
                     }
-                    for(var i = 0;i < len;i++) {
+                    for(var i = 0;i <len;i++) {
                         //获取一条员工信息
                         var emp = data[i];
                         var  o = JSON.parse(emp)
@@ -203,7 +203,6 @@
                         htmlStr += " <td className=\"text-center\">" + o.operationType + "</td>";
                         htmlStr += " <td className=\"text-center\">" + o.userName + "</td>";
                         htmlStr += "</tr>";
-
                     }
                     //将拼接的字符串放进tbody里
                     $("#tbody").html(htmlStr);

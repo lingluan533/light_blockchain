@@ -218,8 +218,7 @@
                 success: function (data, status) {
                     if (data.code == "50002") {
                         toastr.success('注册新用户成功，欢迎你:' + $("input[name='email']").val() + data.msg )
-                        if( data.url.length > 0 )
-                            setTimeout( "window.location.href='"+data.url+"';", 1500 )
+                        setTimeout( "window.location.href='/login.html'", 1500 )
                     } else {
                         toastr.info('注册失败，请重新注册:' + JSON.stringify(data) )
                     }

@@ -10,6 +10,7 @@ import (
 	"sca_server/config"
 	"sca_server/model"
 	"strconv"
+	"time"
 )
 
 // 获取节点的运行状态
@@ -17,7 +18,11 @@ func GetServiceSystemInfo(service *consulapi.CatalogService) model.LSysInfo {
 	var res model.LSysInfo
 	res.IpAddress = service.ServiceAddress
 	res.NodeName = service.ServiceID
-	resp, err := http.Get("http://" + service.ServiceAddress + ":" + strconv.Itoa(service.ServicePort) + "/querySystemInfo")
+	client := http.Client{
+		Timeout: 1 * time.Second,
+	}
+	resp, err := client.Get("http://" + service.ServiceAddress + ":" + strconv.Itoa(service.ServicePort) + "/querySystemInfo")
+	//resp, err := http.Get("http://" + service.ServiceAddress + ":" + strconv.Itoa(service.ServicePort) + "/querySystemInfo")
 	if err != nil {
 		log.Infof("GetServiceSystemInfo Error on request: %v\n", err)
 		res.OnlineStatus = "离线"
@@ -106,6 +111,7 @@ func GetOneOnlineAddress(config *config.Config) (*consulapi.AgentService, error)
 	if len(serviceHealthy) == 0 {
 		return nil, nil
 	}
+	log.Infof("本次请求使用的服务ip:", serviceHealthy[0].Service.Address)
 	return serviceHealthy[0].Service, nil
 
 }

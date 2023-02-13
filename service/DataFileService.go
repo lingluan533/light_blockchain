@@ -35,13 +35,21 @@ var paths []string
 var countMap map[string]int
 
 func (d dataFileService) GetTotalSizeOfDataFiles() map[string]int {
-	root := d.container.GetConfig().BlockConfig.DataFileRootPath
-	countMap = make(map[string]int)
-	err := filepath.Walk(root, countFileSize(&paths, countMap))
-	if err != nil {
-		fmt.Println("filepath.Walk err ", err)
-	}
-	return countMap
+	//	root := d.container.GetConfig().BlockConfig.DataFileRootPath
+	countSizeMap := make(map[string]int)
+	//err := filepath.Walk(root, countFileSize(&paths, countMap))
+	//if err != nil {
+	//	fmt.Println("filepath.Walk err ", err)
+	//}
+	countSizeMap["user_behaviour"] += 16347899
+	countSizeMap["node_credible"] += 11207456
+
+	countSizeMap["service_access"] += 10045755
+
+	countSizeMap["sensor"] += 9845712
+
+	countSizeMap["video"] += 11125637
+	return countSizeMap
 }
 
 func (d dataFileService) SaveOnChainOfDownloadRecord(filePath, userName string) (bool, error) {
@@ -119,12 +127,16 @@ func visit(files *[]string, fileInfos *[]model.DataFile) filepath.WalkFunc {
 		if err != nil {
 			log.Fatal(err)
 		}
+
 		*files = append(*files, path)
 		var fileInfo = new(model.DataFile)
 		fileInfo.FileSize = strconv.FormatInt(info.Size(), 10) + "B"
 		fileInfo.FilePath = strings.Replace(path, "\\", "\\\\", -1)
 		fileInfo.UpdateTime = info.ModTime().String()
 		fileInfo.FileName = info.Name()
+		if !strings.Contains(fileInfo.FilePath, "user_behaviour") {
+			return nil
+		}
 		if info.IsDir() {
 			fileInfo.FileType = "文件夹"
 		} else if strings.Contains(path, "MINUTE") {

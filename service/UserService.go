@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/labstack/gommon/log"
 	"io/ioutil"
 	"net/http"
 	"net/url"
@@ -12,6 +13,7 @@ import (
 	"sca_server/container"
 	"sca_server/model"
 	"strconv"
+	"strings"
 )
 
 type UserService interface {
@@ -27,6 +29,7 @@ type userService struct {
 func (u userService) RegisterMethod(userInfo model.UserInfo) (bool, error) {
 	logger := u.container.GetLogger()
 	// get a avaliable server
+	log.Info(userInfo)
 	service, err := consul.GetOneOnlineAddress(u.container.GetConfig())
 	//logger.GetZapLogger().Errorf(" QueryTimeReceiptsMethod No Avaliable EdgeNode! %v", u.container.GetConfig().Consul)
 	if service == nil {
@@ -37,7 +40,9 @@ func (u userService) RegisterMethod(userInfo model.UserInfo) (bool, error) {
 		logger.GetZapLogger().Errorf("Error on request Avaliable EdgeNode: %v\n", err)
 		return false, errors.New("Error on request Avaliable EdgeNode")
 	}
-	resp, err := http.PostForm("http://"+service.Address+":"+strconv.Itoa(service.Port)+"/register", url.Values{"UserName": {userInfo.UserName}, "Password": {userInfo.Password}, "Phone": {userInfo.Phone}, "Email": {userInfo.Email}})
+	marshal, err := json.Marshal(userInfo)
+	resp, err := http.Post("http://"+service.Address+":"+strconv.Itoa(service.Port)+"/register", "application/json", strings.NewReader(string(marshal)))
+	//resp, err := http.PostForm("http://"+service.Address+":"+strconv.Itoa(service.Port)+"/register", url.Values{"UserName": {userInfo.UserName}, "Password": {userInfo.Password}, "Phone": {userInfo.Phone}, "Email": {userInfo.Email}})
 	if err != nil {
 		logger.GetZapLogger().Errorf("Error on request: %v\n", err)
 		return false, errors.New("Unmarshalerr error")
@@ -51,7 +56,7 @@ func (u userService) RegisterMethod(userInfo model.UserInfo) (bool, error) {
 	}
 	var res map[string]interface{}
 	err = json.Unmarshal(body, &res)
-	m := res["Err"]
+	m := res["err"]
 	if m == config.UserRegisterSuccess {
 		return true, nil
 	} else if m == config.UserRepeatRegister {
@@ -115,12 +120,13 @@ func (u userService) LoginMethod(user string, password string) (bool, error) {
 		return false, errors.New("Unmarshalerr error")
 	}
 	var res map[string]interface{}
-	err = json.Unmarshal([]byte(body), &res)
-	m := res["Err"]
-	if m == "200" {
+	err = json.Unmarshal(body, &res)
+	m := res["err"]
+	fmt.Println(m)
+	if m == config.UserLoginSuccess {
 		return true, nil
 	} else {
-		return false, errors.New(res["Data"].(string))
+		return false, errors.New(res["data"].(string))
 	}
 }
 

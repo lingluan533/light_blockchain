@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"sca_server/container"
 	"sca_server/service"
+	"sort"
 )
 
 type DataFileController interface {
@@ -56,10 +57,13 @@ func (d dataFileController) DownLoadFile(c echo.Context) error {
 
 func (d dataFileController) ShowDataFiles(c echo.Context) error {
 	fileInfos := d.service.GetAllFiles()
+	sort.Slice(fileInfos, func(i, j int) bool {
+		return fileInfos[i].UpdateTime > fileInfos[j].UpdateTime
+	})
 	if len(fileInfos) < 25 {
 		return c.JSON(http.StatusOK, fileInfos)
 	}
-	return c.JSON(http.StatusOK, fileInfos[len(fileInfos)-25:])
+	return c.JSON(http.StatusOK, fileInfos)
 }
 func NewDataFileController(container container.Container) DataFileController {
 	return &dataFileController{

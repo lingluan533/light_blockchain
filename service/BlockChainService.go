@@ -72,7 +72,7 @@ func (u *blockChainService) QueryTimeReceiptsMethod() ([]byte, error) {
 	var config []map[string]interface{}
 
 	err = json.Unmarshal([]byte(body), &config)
-	//fmt.Println(config)
+
 	fmt.Println(len(config))
 	return body, nil
 

@@ -35,15 +35,13 @@ func (controller *userController) Register(c echo.Context) error {
 	user_pass0 := c.FormValue("pass0")
 	user_pass1 := c.FormValue("pass1")
 	//user_agree := c.FormValue("agree")
-	//fmt.Println("register")
-	//fmt.Println(user_name)
-	//fmt.Println(user_nice)
-	//fmt.Println(user_phone)
-	//fmt.Println(user_email)
-	////fmt.Println(user_pass0)
-	////fmt.Println(user_pass1)
-	//fmt.Println(user_avatar)
-	//fmt.Println(user_agree)
+	fmt.Println("register")
+	fmt.Println(user_name)
+
+	fmt.Println(user_phone)
+	fmt.Println(user_email)
+	fmt.Println(user_pass0)
+	fmt.Println(user_pass1)
 
 	var verify VerifyResponse
 	verify.Code = "00000"
@@ -119,7 +117,6 @@ func (controller *userController) Login(c echo.Context) error {
 		Verify.Code = "00001"
 		Verify.Msg = "验证失败或已停用：" + username
 		return c.JSON(http.StatusOK, Verify)
-		//	return c.Render(http.StatusOK, "index.html", nil)
 	}
 	if res {
 		//密码正确, 下面开始注册用户会话数据
@@ -140,7 +137,6 @@ func (controller *userController) Login(c echo.Context) error {
 		sess.Save(c.Request(), c.Response())
 		Verify.Code = "00000"
 		Verify.Msg = "验证成功"
-		Verify.Code = "00000"
 		Verify.User = username
 		Verify.Url = "index.html"
 		UserData.UserName = username

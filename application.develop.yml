@@ -60,4 +60,4 @@ EtcdKeyPrefix:
   user_operation: "USEROPERATION"
 # 区块存储
 block:
-  root_path:  "E:\\Go_WorkSpace\\hraft1102\\scope"
+  root_path:  "P:\\scope"
